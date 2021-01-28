@@ -60,7 +60,7 @@ export default function Home(props: PageProps) {
       <main>
         <div className="container goals">
           <div className="goal">
-            <h3>Erster Meilenstein: {formatCurrency(props.goals[0], false)}</h3>
+            <h3>Unser Ziel: {formatCurrency(props.goals[0], false)}</h3>
             {props.totalAmount > props.goals[0] && (
               <div className="achieved">
                 <img src="/check-badge.svg" />
@@ -68,30 +68,25 @@ export default function Home(props: PageProps) {
               </div>
             )}
             <p>
-              Mit {formatCurrency(props.goals[0], false)} können wir am{" "}
-              <strong>12. und 13. Feburar</strong> die erste Veranstaltung mit
-              der Ludwig Seuss Band und der HörspielManufaktur von Sebastian
-              Hofmüller.
+              Mit {formatCurrency(props.goals[0], false)} können wir die
+              geplanten fünf Veranstaltungen durchführen.
             </p>
             <p>
-              Die Summe setzt sich zusammen aus Gagen und einem kleineren Teil
-              für Fixkosten und Technik. Das professionelle Team an Kameraleuten
-              und Techniker&shy;*innen arbeitet ebenfalls ehrenamtlich und
-              sponsert das Equipment.
+              Die Summe setzt sich zusammen aus Gagen für Künstler*innen und
+              einem kleineren Teil für Fixkosten für technisches Equipment und
+              Aufwandsentschädigungen für Techniker*innen und Kameraleute.
             </p>
           </div>
 
           <div className="goal">
             <h3>Darüber hinaus&hellip;</h3>
             <p>
-              Wenn wir unser initiales Ziel erreicht haben, planen wir weitere
-              Veranstaltungen. Die Kosten für jede weitere Veranstaltung
-              belaufen sich auf jeweils 800&nbsp;Euro.
-            </p>
-            <p>
-              Unter anderem konnten wir schon Faltsch Wagoni, die
-              BusStopRokkers, Organ Explosion und Stray Colors für unsere
-              Zusatzkonzerte gewinnen.
+              Auch wenn wir das {formatCurrency(props.goals[0], false)}-Ziel
+              erreicht haben, bitten wir Euch weiter für unser Projekt zu
+              spenden. Zusätzliche Spendeneinnahmen werden wir für eine
+              Aufstockung der bisher knappen Gagen für Künstler*innen und
+              Techniker*innen verwenden. Und wer weiß, vielleicht können wir
+              sogar noch weitere Veranstaltungen realisieren.
             </p>
           </div>
         </div>
@@ -124,7 +119,10 @@ export default function Home(props: PageProps) {
                 <li>
                   <time>Samstag, 13. Februar, 16:00 Uhr</time>
                   <h4>Greulmüllersche HörspielManufaktur</h4>
-                  <p>Pünktchen und Anton</p>
+                  <p>
+                    &bdquo;Pünktchen und Anton&rdquo;, für Kinder ab 6 und
+                    Erwachsene
+                  </p>
                 </li>
 
                 <li>
@@ -202,7 +200,7 @@ export default function Home(props: PageProps) {
               </a>
             </div>
             <div className="row">
-              <a target="_blank" href="https://https://sigma-event.de">
+              <a target="_blank" href="https://sigma-event.de">
                 <img src="/sigma.svg" alt="Sigma Veranstaltungstechnik" />
               </a>
               <a target="_blank" href="https://camposviola.photography">

@@ -11,6 +11,14 @@ async function fetchProject() {
   };
 }
 
+export async function fetchDonation(token: string) {
+  const res: betterplace.DonationDetail = await fetch(
+    `https://api.betterplace.org/de/api_v4/clients/kulturspektakel-gauting/client_donations/${token}.json`
+  ).then((r) => r.json());
+
+  return res;
+}
+
 export type Donation = {
   createdAt: string;
   amount: number | null;
@@ -46,7 +54,7 @@ export async function fetchPageProps() {
   return {
     props: {
       ...project,
-      goals: [130000, 210000, 290000, 370000],
+      goals: [370000],
       opinions,
     },
   };
@@ -73,7 +81,7 @@ export async function fetchOpinions(
         donation.author?.picture.links.find(
           (link) => link.rel === "fill_100x100"
         )?.href ?? null,
-      message: donation.message,
+      message: donation.message?.replace("&amp;", "&") ?? null,
     })),
     nextPage: res.current_page < res.total_pages ? res.current_page + 1 : null,
   };
@@ -193,5 +201,23 @@ declare module betterplace {
     current_page: number;
     per_page: number;
     data: Datum[];
+  }
+
+  export interface DonationDetail {
+    amount_in_cents: number;
+    state: string;
+    donor: {
+      name: string;
+      picture: Picture;
+      links: Link[];
+    };
+    message: string;
+    token: string;
+    client_reference: string;
+    created_at: Date;
+    receiver_type: string;
+    receiver_id: number;
+    receiver_title: string;
+    links: Link[];
   }
 }

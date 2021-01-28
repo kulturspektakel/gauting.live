@@ -27,7 +27,7 @@ export default function Impressum(props: {}) {
         <p>
           <strong>IBAN:</strong>
           <br />
-          DE
+          DE32 7025 0150 0022 7836 09
         </p>
         <p>
           Wenn eine Spendenquittung benötigt wird, bitte eine E-Mail an

@@ -25,7 +25,7 @@ export default function Bar(props: {
           {props.donationsCount}&nbsp;Spender*innen
         </h2>
         <div className="state">
-          <span>{`${Math.round((props.totalAmount / finalGoal) * 100)}%`}</span>
+          <span>{`${Math.floor((props.totalAmount / finalGoal) * 100)}%`}</span>
           <span>{formatCurrency(finalGoal, false)}</span>
         </div>
         <div className="bar" ref={ref}>
