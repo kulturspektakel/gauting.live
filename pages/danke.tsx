@@ -4,12 +4,12 @@ import Page from "../components/Page";
 import Bar from "../components/Bar";
 import { GetServerSideProps } from "next";
 import DonationList from "../components/DonationList";
-import { fetchPageProps, PageProps } from "../utils/betterplace";
+import { fetchBetterplaceData, BetterplaceData } from "../utils/betterplace";
 import Reminder from "../components/Reminder";
 import qs from "qs";
 import Head from "next/head";
 
-export default function Danke(props: PageProps) {
+export default function Danke(props: BetterplaceData) {
   const [mounted, setMounted] = useState(false);
   useLayoutEffect(() => {
     setMounted(true);
@@ -102,4 +102,9 @@ export default function Danke(props: PageProps) {
   );
 }
 
-export const getServerSideProps: GetServerSideProps<PageProps> = fetchPageProps;
+export const getServerSideProps: GetServerSideProps<BetterplaceData> = async () => {
+  const props = await fetchBetterplaceData();
+  return {
+    props,
+  };
+};

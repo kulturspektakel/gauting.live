@@ -1,22 +1,44 @@
 import { GetServerSideProps } from "next";
 import Bar from "../components/Bar";
-import {
-  fetchOpinions,
-  fetchPageProps,
-  formatCurrency,
-  PageProps,
-} from "../utils/betterplace";
+import { BetterplaceData, fetchBetterplaceData } from "../utils/betterplace";
 import DonateNow from "../components/Donate";
 import DonationList from "../components/DonationList";
-import Countdown from "../components/Countdown";
 import React from "react";
 import Link from "next/link";
 import Page from "../components/Page";
 import Reminder from "../components/Reminder";
+import Schedule from "../components/Schedule";
+import Live from "../components/Live";
+import { nearestEventDate } from "../utils/events";
+import formatCurrency from "../utils/formatCurrency";
+import { useInView } from "react-intersection-observer";
+import { fetchLive } from "./api/live";
+import useSWR from "swr";
 
-export default function Home(props: PageProps) {
+type Props = BetterplaceData & {
+  liveVideo: Await<ReturnType<typeof fetchLive>>;
+};
+
+export default function Home(props: Props) {
+  const { ref, inView } = useInView({
+    initialInView: true,
+  });
+
+  const { data: liveVideo } = useSWR<Await<ReturnType<typeof fetchLive>>>(
+    "/api/live",
+    {
+      refreshInterval: 10000,
+      initialData: props.liveVideo ?? undefined,
+    }
+  );
+
+  const hasVideo = Boolean(liveVideo?.data);
+
   return (
-    <Page>
+    <Page dark={hasVideo && inView}>
+      {hasVideo && liveVideo?.data && (
+        <Live liveVideo={liveVideo?.data} ref={ref} />
+      )}
       <div className="container">
         <h1>
           Kultur in der Krise <strong>unterstützen</strong>
@@ -60,33 +82,33 @@ export default function Home(props: PageProps) {
       <main>
         <div className="container goals">
           <div className="goal">
-            <h3>Unser Ziel: {formatCurrency(props.goals[0], false)}</h3>
-            {props.totalAmount > props.goals[0] && (
-              <div className="achieved">
-                <img src="/check-badge.svg" />
-                Ziel erreicht
-              </div>
-            )}
+            <h3>Vielen Dank!</h3>
+            {/* <div className="achieved">
+              <img src="/check-badge.svg" />
+              Ziel erreicht
+            </div> */}
             <p>
-              Mit {formatCurrency(props.goals[0], false)} können wir die
-              geplanten fünf Veranstaltungen durchführen.
-            </p>
-            <p>
-              Die Summe setzt sich zusammen aus Gagen für Künstler*innen und
-              einem kleineren Teil für Fixkosten für technisches Equipment und
-              Aufwandsentschädigungen für Techniker*innen und Kameraleute.
+              Mit den bisherigen Spenden, die alle Erwartungen übertroffen
+              haben, können wir sogar sechs statt der geplanten fünf
+              Veranstaltungen auf die Beine stellen. Vor allem können wir aber
+              auch dem 10-köpfigen Event-Produktionsteam, das wie auch die
+              Künstler*innen von der Pandemie betroffen ist, etwas mehr als eine
+              symbolische Aufwands&shy;entschädigung für Equipment und
+              Arbeitszeit zahlen.
             </p>
           </div>
 
           <div className="goal">
-            <h3>Darüber hinaus&hellip;</h3>
+            <h3>Es geht noch weiter&hellip;</h3>
             <p>
-              Auch wenn wir das {formatCurrency(props.goals[0], false)}-Ziel
-              erreicht haben, bitten wir Euch weiter für unser Projekt zu
-              spenden. Zusätzliche Spendeneinnahmen werden wir für eine
-              Aufstockung der bisher knappen Gagen für Künstler*innen und
-              Techniker*innen verwenden. Und wer weiß, vielleicht können wir
-              sogar noch weitere Veranstaltungen realisieren.
+              Aber bitte auch jetzt noch nicht mit dem Spenden aufhören! Wenn
+              wir die {formatCurrency(props.goals[0], false)}-Marke knacken,
+              gibt neben den schon bestätigten sechs Veranstaltungen noch ein
+              zusätzliches Online-Kultur-Highlight aus dem Bosco.
+            </p>
+            <p>
+              Und dann ist hoffentlich der Frühling da und wir können wieder
+              echte Live-Konzerte erleben.
             </p>
           </div>
         </div>
@@ -94,75 +116,19 @@ export default function Home(props: PageProps) {
       <div className="container">
         <DonateNow />
       </div>
-      <main className="live">
-        <div className="container">
-          <div className="inner">
-            <h2>Livestream</h2>
-            <Reminder isDark />
-          </div>
-        </div>
-      </main>
-      <main>
-        <div>
-          <div className="container goals">
-            <div className="goal schedule">
-              <ul>
-                <li>
-                  <time>Freitag, 12. Februar, 20:00 Uhr</time>
-                  <h4>Ludwig Seuss Band</h4>
-                  <p>
-                    Mit seiner Band vermischt Ludwig Seuss klassischen
-                    Piano-Boogie mit Jump-Blues und Louisiana-R&amp;R.
-                  </p>
-                </li>
-
-                <li>
-                  <time>Samstag, 13. Februar, 16:00 Uhr</time>
-                  <h4>Greulmüllersche HörspielManufaktur</h4>
-                  <p>
-                    &bdquo;Pünktchen und Anton&rdquo;, für Kinder ab 6 und
-                    Erwachsene
-                  </p>
-                </li>
-
-                <li>
-                  <time>Freitag, 26. Februar, 20:00 Uhr</time>
-                  <h4>Faltsch Wagoni</h4>
-                  <p>
-                    In ihren Programmen verbinden Der&amp;Die Prosperi
-                    satirische Wortkunst und inszenierte Poetry-Songs zu
-                    außergewöhnlichen Shows.
-                    <h4>BusStopRokkers</h4>
-                    <p>
-                      Das ist Blues Rockabilly &amp; Seemannsgarn. Ein Road-Trip
-                      von Tennessee bis an die peitschende Ostsee.
-                    </p>
-                  </p>
-                </li>
-                <li>
-                  <time>Freitag, 12. März, 20:00 Uhr</time>
-                  <h4>Organ Explosion</h4>
-                  <p>
-                    Mit ihrem Sammelsurium analoger Instrumente aus den 60ern
-                    und 70ern, mit Phaser, Flanger und Band-Echo kreieren sie
-                    einen Sound, an dem die Protagonisten sämtlicher
-                    Weltraumheldenserien ihre Freude hätten.
-                  </p>
-                </li>
-                <li>
-                  <time>Freitag, 26. März, 20:00 Uhr</time>
-                  <h4>Stray Colors</h4>
-                  <p>
-                    Ein kunterbuntes Leuchtfeuer aus Balkan, Folk und Indie.
-                    Dazu der zweistimme Gesang von Rüdiger Sinn und Zlatko
-                    Pasalic.
-                  </p>
-                </li>
-              </ul>
+      {!hasVideo && (
+        <>
+          <main className="live">
+            <div className="container">
+              <div className="inner">
+                <h2>Livestream</h2>
+                <Reminder isDark />
+              </div>
             </div>
-          </div>
-        </div>
-      </main>
+          </main>
+          <Schedule />
+        </>
+      )}
       <main>
         <div className="container">
           <h2>Spenden</h2>
@@ -220,4 +186,15 @@ export default function Home(props: PageProps) {
   );
 }
 
-export const getServerSideProps: GetServerSideProps<PageProps> = fetchPageProps;
+export const getServerSideProps: GetServerSideProps<Props> = async () => {
+  const [betterplaceData, liveVideo] = await Promise.all([
+    fetchBetterplaceData(),
+    fetchLive(),
+  ]);
+  return {
+    props: {
+      ...betterplaceData,
+      liveVideo,
+    },
+  };
+};

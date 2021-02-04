@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
+import { nextEventDate } from "../utils/events";
 import Countdown from "./Countdown";
 
 type Props = {
@@ -28,7 +29,7 @@ export default function Reminder(props: Props) {
         Kommt das Geld für unsere Veranstaltung zusammen, übertragen wir die
         Konzerte frei für alle, im Livestream auf dieser Webseite und Facebook.
       </p>
-      <Countdown />
+      <Countdown date={nextEventDate()} />
       <br />
       <div className={`reminder ${props.isDark ? "dark" : ""}`}>
         {!set ? (
@@ -37,6 +38,9 @@ export default function Reminder(props: Props) {
             <div className="form">
               <input
                 type="tel"
+                name="tel"
+                id="tel"
+                autoComplete="tel"
                 placeholder="Handynummer"
                 value={tel}
                 onChange={(e) => setTel(e.target.value)}

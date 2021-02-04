@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import { differenceInSeconds } from "date-fns";
-import { nextEventDate } from "../utils/betterplace";
 
-export default function Countdown() {
+export default function Countdown(props: { date: Date; ended?: string }) {
   const [now, setNow] = useState<Date | null>(null);
   useEffect(() => {
     setNow(new Date());
@@ -16,7 +15,7 @@ export default function Countdown() {
     return null;
   }
 
-  const diff = differenceInSeconds(nextEventDate(), now);
+  const diff = differenceInSeconds(props.date, now);
   const seconds = diff % 60;
   const minutes = Math.floor(diff / 60) % 60;
   const hours = Math.floor(diff / 3600) % 24;
@@ -24,22 +23,28 @@ export default function Countdown() {
 
   return (
     <div className="countdown">
-      <div>
-        <time>{Math.max(0, days)}</time>
-        Tage
-      </div>
-      <div>
-        <time>{Math.max(0, hours)}</time>
-        Stunden
-      </div>
-      <div>
-        <time>{Math.max(0, minutes)}</time>
-        Minuten
-      </div>
-      <div>
-        <time>{Math.max(0, seconds)}</time>
-        Sekunden
-      </div>
+      {props.ended && diff <= 0 ? (
+        <div className="ended">{props.ended}</div>
+      ) : (
+        <>
+          <div>
+            <time>{Math.max(0, days)}</time>
+            Tage
+          </div>
+          <div>
+            <time>{Math.max(0, hours)}</time>
+            Stunden
+          </div>
+          <div>
+            <time>{Math.max(0, minutes)}</time>
+            Minuten
+          </div>
+          <div>
+            <time>{Math.max(0, seconds)}</time>
+            Sekunden
+          </div>
+        </>
+      )}
     </div>
   );
 }

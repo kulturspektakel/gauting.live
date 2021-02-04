@@ -1,5 +1,3 @@
-import { isBefore } from "date-fns";
-
 async function fetchProject() {
   const res: betterplace.Project = await fetch(
     `https://api.betterplace.org/de/api_v4/projects/${process.env.NEXT_PUBLIC_BETTERPLACE_PROJECT}.json`
@@ -27,40 +25,20 @@ export type Donation = {
   message: string | null;
 };
 
-export function nextEventDate(): Date {
-  const events = [
-    new Date("2021-02-12T20:00:00+01:00"),
-    new Date("2021-02-13T16:00:00+01:00"),
-    new Date("2021-02-26T20:00:00+01:00"),
-    new Date("2021-03-12T20:00:00+01:00"),
-    new Date("2021-03-26T20:00:00+01:00"),
-  ];
-
-  const i = events.findIndex((e) => isBefore(e, new Date())) + 1;
-  return events[i];
-}
-
-export type Await<T> = T extends {
-  then(onfulfilled?: (value: infer U) => unknown): unknown;
-}
-  ? U
-  : T;
-export async function fetchPageProps() {
+export async function fetchBetterplaceData() {
   const [project, opinions] = await Promise.all<
     Await<ReturnType<typeof fetchProject>>,
     Await<ReturnType<typeof fetchOpinions>>
   >([fetchProject(), fetchOpinions()]);
 
   return {
-    props: {
-      ...project,
-      goals: [370000],
-      opinions,
-    },
+    ...project,
+    goals: [950000],
+    opinions,
   };
 }
 
-export type PageProps = Await<ReturnType<typeof fetchPageProps>>["props"];
+export type BetterplaceData = Await<ReturnType<typeof fetchBetterplaceData>>;
 
 export async function fetchOpinions(
   page: number | null = 1
@@ -85,23 +63,6 @@ export async function fetchOpinions(
     })),
     nextPage: res.current_page < res.total_pages ? res.current_page + 1 : null,
   };
-}
-
-export function formatCurrency(
-  amount: number,
-  showFraction: boolean = true
-): string | null {
-  if (typeof amount !== "number") {
-    return null;
-  }
-  var formatter = new Intl.NumberFormat("de-DE", {
-    style: "currency",
-    currency: "EUR",
-    maximumFractionDigits: showFraction ? 2 : 0,
-    minimumFractionDigits: showFraction ? 2 : 0,
-  });
-
-  return formatter.format(amount / 100);
 }
 
 declare module betterplace {

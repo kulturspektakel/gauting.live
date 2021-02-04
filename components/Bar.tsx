@@ -1,6 +1,6 @@
-import { formatCurrency } from "../utils/betterplace";
 import { useInView } from "react-intersection-observer";
 import { useEffect, useState } from "react";
+import formatCurrency from "../utils/formatCurrency";
 
 export default function Bar(props: {
   totalAmount: number;

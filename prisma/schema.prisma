@@ -1,0 +1,46 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model donations {
+  id          String    @id @default(dbgenerated("random_string(15)"))
+  timestamp   DateTime? @default(now())
+  status      String?   @default("started")
+  amount      Int?
+  betterplace String?
+}
+
+enum VideoStatus {
+  unpublished
+  live
+  live_stopped
+  processing
+  vod
+  scheduled_unpublished
+  scheduled_live
+  scheduled_expired
+  scheduled_canceled
+}
+
+model live {
+  videoId              String
+  broadcastId          String      @unique
+  pageId               String
+  updatedAt            DateTime    @default(now())
+  broadcast_start_time DateTime?
+  planned_start_time   DateTime?
+  title                String?
+  description          String?
+  status               VideoStatus
+}
+
+model reminders {
+  id        Int       @id @default(autoincrement())
+  timestamp DateTime? @default(now())
+  number    String?
+}

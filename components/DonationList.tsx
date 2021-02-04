@@ -2,7 +2,8 @@ import { useCallback, useState } from "react";
 import { formatRelative } from "date-fns";
 import { de } from "date-fns/locale";
 import Masonry from "react-masonry-css";
-import { Await, fetchOpinions, formatCurrency } from "../utils/betterplace";
+import { fetchOpinions } from "../utils/betterplace";
+import formatCurrency from "../utils/formatCurrency";
 
 export default function DonationList(props: {
   initialOpinions: Await<ReturnType<typeof fetchOpinions>>;

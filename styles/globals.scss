@@ -147,6 +147,12 @@ li {
   background: white;
   border-bottom: 1px solid #eaeaea;
   z-index: 4;
+  transition: 0.4s all;
+
+  &.eventMode {
+    background: #2f343e;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
 
   .container {
     display: flex;
@@ -240,6 +246,7 @@ li {
   border-radius: 999em;
   position: relative;
   overflow: hidden;
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
 
   .fill {
     transition-delay: 0.2s;
@@ -568,6 +575,14 @@ li {
     display: block;
     font-size: 1.6em;
   }
+
+  .ended {
+    font-family: "Merriweather";
+    display: block;
+    font-size: 1.6em;
+    width: auto;
+    margin: 0;
+  }
 }
 
 .schedule {
@@ -710,4 +725,85 @@ li {
 
 .leftAlign {
   text-align: left;
+}
+
+.livestream {
+  color: white;
+  margin-top: -20px;
+  position: relative;
+  z-index: 1;
+
+  @media only screen and (max-width: 767px) {
+    margin-bottom: 30px;
+  }
+
+  &::before {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -100px;
+    bottom: 0;
+    transform: skewY(-2.5deg);
+    background-color: #2f343e;
+  }
+
+  .video {
+    width: 100%;
+    padding-top: 56.25%;
+    position: relative;
+    border-radius: 15px;
+    background-color: black;
+
+    margin-top: 20px;
+    margin-bottom: 60px;
+
+    @media only screen and (max-width: 767px) {
+      margin-top: 0px;
+      margin-bottom: 20px;
+    }
+
+    .videoInner {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .info {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        h3 {
+          font-family: "Barlow";
+          margin-bottom: 0.2em;
+          margin-top: 1em;
+        }
+
+        p {
+          margin-top: 0;
+          max-width: 60%;
+        }
+
+        .countdown {
+          margin-left: auto;
+          margin-right: auto;
+          & > div {
+            text-align: center;
+          }
+        }
+      }
+
+      iframe {
+        border-radius: 15px;
+      }
+    }
+  }
 }
