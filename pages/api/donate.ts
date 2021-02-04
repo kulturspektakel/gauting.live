@@ -27,9 +27,9 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
       const donation = await fetchDonation(donation_token);
 
-      await fetch(
-        "https://hooks.slack.com/services/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",
-        {
+      const webhook = process.env.SLACK_WEBHOOK;
+      if (webhook) {
+        await fetch(webhook, {
           method: "POST",
           headers: {
             "Content-type": "application/json",
@@ -43,8 +43,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
               donation.donor?.name ?? "anonym"
             }*:\n> ${donation.message}`,
           }),
-        }
-      );
+        });
+      }
     } catch (e) {
       console.error(e);
     }
