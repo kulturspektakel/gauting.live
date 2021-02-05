@@ -26,6 +26,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     return res.send(challenge);
   }
 
+  console.log(req.body);
+
   const handleEvents = req.body?.entry?.flatMap(
     (entry: { id: string; time: number; changes: any[] }) =>
       entry.changes.map(
