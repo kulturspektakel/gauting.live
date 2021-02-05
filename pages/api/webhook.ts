@@ -65,6 +65,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
             `https://graph.facebook.com/${change.value.id}?access_token=${process.env.FB_TOKEN}&fields=video,planned_start_time,broadcast_start_time,title,description`
           ).then((res) => res.json());
 
+          console.log(JSON.stringify(fb));
+
           if (change.value.status === "live" && existing?.status !== "live") {
             await sendSMS(fb.title);
           }
