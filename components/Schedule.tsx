@@ -10,6 +10,11 @@ export default function Schedule() {
               Mit seiner Band vermischt Ludwig Seuss klassischen Piano-Boogie
               mit Jump-Blues und Louisiana-R&amp;R.
             </p>
+            <h4>Erik Berthold</h4>
+            <p>
+              Erik Berthold spielt mit akustischer Gitarre Westcoast Music auf
+              seine eigene, sympathische Art interpretiert.
+            </p>
           </li>
 
           <li>

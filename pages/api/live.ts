@@ -18,25 +18,24 @@ export async function fetchLive() {
 
   const liveEvent = await prisma.live.findFirst({
     where: {
-      status: {
-        in: [
-          VideoStatus.live,
-          VideoStatus.vod,
-          VideoStatus.scheduled_live,
-          VideoStatus.scheduled_unpublished,
-        ],
-      },
       OR: [
         {
           planned_start_time: isToday,
+          status: {
+            in: [VideoStatus.scheduled_unpublished, VideoStatus.scheduled_live],
+          },
         },
         {
+          status: VideoStatus.live,
+        },
+        {
+          status: VideoStatus.vod,
           broadcast_start_time: isToday,
         },
       ],
     },
     orderBy: {
-      updatedAt: "desc",
+      planned_start_time: "asc",
     },
     select: {
       pageId: true,

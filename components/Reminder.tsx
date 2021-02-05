@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { nextEventDate } from "../utils/events";
+import useSWR from "swr";
+import { fetchNextEvent } from "../pages/api/nextEvent";
 import Countdown from "./Countdown";
 
 type Props = {
@@ -9,6 +10,9 @@ type Props = {
 export default function Reminder(props: Props) {
   const [tel, setTel] = useState("");
   const [set, setSet] = useState(false);
+  const { data: nextEvent } = useSWR<Await<ReturnType<typeof fetchNextEvent>>>(
+    "/api/nextEvent"
+  );
 
   useEffect(() => {
     setSet(Boolean(localStorage.getItem("reminder")));
@@ -26,15 +30,21 @@ export default function Reminder(props: Props) {
   return (
     <>
       <p>
-        Kommt das Geld für unsere Veranstaltung zusammen, übertragen wir die
-        Konzerte frei für alle, im Livestream auf dieser Webseite und Facebook.
+        Alle Livestreams werden kostenlos für alle zugänglich aus dem Bosco auf
+        dieser Seite und Facebook übertragen. Noch&hellip;
       </p>
-      <Countdown date={nextEventDate()} />
+      <Countdown date={new Date(nextEvent?.data?.planned_start_time ?? 0)} />
       <br />
+      {nextEvent?.data?.title && (
+        <>
+          &hellip;bis <strong>&bdquo;{nextEvent?.data?.title}&rdquo;</strong>{" "}
+          beginnt.
+        </>
+      )}
       <div className={`reminder ${props.isDark ? "dark" : ""}`}>
         {!set ? (
           <div>
-            <p>Lass dich per SMS an den Livestream erinnern</p>
+            <p>Per SMS an den Livestream erinnern lassen:</p>
             <div className="form">
               <input
                 type="tel"

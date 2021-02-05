@@ -9,7 +9,6 @@ import Page from "../components/Page";
 import Reminder from "../components/Reminder";
 import Schedule from "../components/Schedule";
 import Live from "../components/Live";
-import { nearestEventDate } from "../utils/events";
 import formatCurrency from "../utils/formatCurrency";
 import { useInView } from "react-intersection-observer";
 import { fetchLive } from "./api/live";
@@ -31,7 +30,6 @@ export default function Home(props: Props) {
       initialData: props.liveVideo ?? undefined,
     }
   );
-
   const hasVideo = Boolean(liveVideo?.data);
 
   return (
