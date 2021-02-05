@@ -27,7 +27,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   }
 
   const body = typeof req.body === "string" ? JSON.parse(req.body) : req.body;
-  console.log(body);
+  console.log(JSON.stringify(body));
 
   const handleEvents = body?.entry?.flatMap(
     (entry: { id: string; time: number; changes: any[] }) =>
