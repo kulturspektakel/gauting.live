@@ -17,7 +17,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       await prisma.donations.update({
         data: {
           status,
-          amount,
+          amount: parseInt(amount),
           betterplace: donation_token,
         },
         where: {
