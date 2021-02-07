@@ -129,13 +129,13 @@ li {
   padding-top: 100px;
   padding-bottom: 80px;
 
-  p {
-    a {
-      color: #ea0000;
+  p a,
+  .learnMore {
+    border-bottom: 1px solid transparent;
+    color: #ea0000;
 
-      &:hover {
-        border-bottom: 1px solid #ea0000;
-      }
+    &:hover {
+      border-bottom: 1px solid #ea0000;
     }
   }
 }
@@ -616,6 +616,11 @@ li {
 
     p {
       margin: 0;
+    }
+
+    .learnMore {
+      margin-top: 0.4em;
+      display: inline-block;
     }
   }
 }

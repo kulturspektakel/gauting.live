@@ -13,8 +13,15 @@ export default function Schedule() {
             <h4>Erik Berthold</h4>
             <p>
               Erik Berthold spielt mit akustischer Gitarre Westcoast Music auf
-              seine eigene, sympathische Art interpretiert.
+              seine eigene, sympathische Art interpretiert.{" "}
             </p>
+            <a
+              className="learnMore"
+              href="https://bosco-gauting.de/veranstaltungen/gautinglive-ludwig-seuss-band-erik-berthold"
+              target="_blank"
+            >
+              &#8594;&nbsp;Mehr zu dieser Veranstaltung
+            </a>
           </li>
 
           <li>
@@ -23,6 +30,13 @@ export default function Schedule() {
             <p>
               &bdquo;Pünktchen und Anton&rdquo;, für Kinder ab 6 und Erwachsene
             </p>
+            <a
+              className="learnMore"
+              href="https://bosco-gauting.de/veranstaltungen/gautinglive-puenktchen-und-anton"
+              target="_blank"
+            >
+              &#8594;&nbsp;Mehr zu dieser Veranstaltung
+            </a>
           </li>
 
           <li>
@@ -37,7 +51,26 @@ export default function Schedule() {
               Das ist Blues Rockabilly &amp; Seemannsgarn. Ein Road-Trip von
               Tennessee bis an die peitschende Ostsee.
             </p>
+            <a
+              className="learnMore"
+              href="https://bosco-gauting.de/veranstaltungen/gautinglive-faltsch-wagoni-busstop-rokkers"
+              target="_blank"
+            >
+              &#8594;&nbsp;Mehr zu dieser Veranstaltung
+            </a>
           </li>
+          <li>
+            <time>Freitag, 5. März, 20:00 Uhr</time>
+            <h4>Klassik live</h4>
+            <p>
+              Halina Bertram &#8211; Klavier
+              <br />
+              Ernst Matthias Friedrich &#8211; Sprecher
+              <br />
+              Gisela Auspurg &#8211; Violoncello
+            </p>
+          </li>
+
           <li>
             <time>Freitag, 12. März, 20:00 Uhr</time>
             <h4>Organ Explosion</h4>
@@ -53,6 +86,13 @@ export default function Schedule() {
               Gesang begeben sich die beiden Musiker auf eine Tour, die vor
               allem durch den Süden Spaniens, durch Andalusien führt.
             </p>
+            <a
+              className="learnMore"
+              href="https://bosco-gauting.de/veranstaltungen/gautinglive-organ-explosion-cuentos-del-sur"
+              target="_blank"
+            >
+              &#8594;&nbsp;Mehr zu dieser Veranstaltung
+            </a>
           </li>
           <li>
             <time>Freitag, 26. März, 20:00 Uhr</time>
@@ -61,6 +101,13 @@ export default function Schedule() {
               Ein kunterbuntes Leuchtfeuer aus Balkan, Folk und Indie. Dazu der
               zweistimme Gesang von Rüdiger Sinn und Zlatko Pasalic.
             </p>
+            <a
+              className="learnMore"
+              href="https://bosco-gauting.de/veranstaltungen/gautinglive-stray-colors"
+              target="_blank"
+            >
+              &#8594;&nbsp;Mehr zu dieser Veranstaltung
+            </a>
           </li>
         </ul>
       </div>
