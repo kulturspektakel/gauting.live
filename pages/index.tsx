@@ -88,11 +88,11 @@ export default function Home(props: Props) {
             <p>
               Mit den bisherigen Spenden, die alle Erwartungen übertroffen
               haben, können wir sogar sechs statt der geplanten fünf
-              Veranstaltungen auf die Beine stellen. Vor allem können wir aber
-              auch dem 10-köpfigen Event-Produktionsteam, das wie auch die
-              Künstler*innen von der Pandemie betroffen ist, etwas mehr als eine
-              symbolische Aufwands&shy;entschädigung für Equipment und
-              Arbeitszeit zahlen.
+              Veranstaltungen mit mittlerweile insgesamt neun Live-Acts auf die
+              Beine stellen. Vor allem können wir aber auch dem 10-köpfigen
+              Event-Produktionsteam, das wie auch die Künstler*innen von der
+              Pandemie betroffen ist, etwas mehr als eine symbolische
+              Aufwands&shy;entschädigung für Equipment und Arbeitszeit zahlen.
             </p>
           </div>
 
