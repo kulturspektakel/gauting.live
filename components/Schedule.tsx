@@ -28,7 +28,8 @@ export default function Schedule() {
             <time>Samstag, 13. Februar, 16:00 Uhr</time>
             <h4>Greulmüllersche HörspielManufaktur</h4>
             <p>
-              &bdquo;Pünktchen und Anton&rdquo;, für Kinder ab 6 und Erwachsene
+              &bdquo;Pünktchen und Anton&rdquo; von Erich Kästner als
+              Live-Hörspiel-Abenteuer - für Kinder ab 6 und Erwachsene
             </p>
             <a
               className="learnMore"
@@ -61,14 +62,29 @@ export default function Schedule() {
           </li>
           <li>
             <time>Freitag, 5. März, 20:00 Uhr</time>
-            <h4>Klassik live</h4>
+            <h4>Lasst uns träumen&hellip;</h4>
             <p>
+              Musik &amp; Texte interpretiert von
+              <br />
               Halina Bertram &#8211; Klavier
               <br />
-              Ernst Matthias Friedrich &#8211; Sprecher
-              <br />
               Gisela Auspurg &#8211; Violoncello
+              <br />
+              Ernst Matthias Friedrich &#8211; Sprecher
             </p>
+            <h4>Cuentos Del Sur</h4>
+            <p>
+              Mit rassiger Flamencogitarre, virtuosem Violoncello und spanischem
+              Gesang begeben sich die beiden Musiker auf eine Tour, die vor
+              allem durch den Süden Spaniens, durch Andalusien führt.
+            </p>
+            <a
+              className="learnMore"
+              href="https://bosco-gauting.de/veranstaltungen/gautinglive-auspurg-bertram-friedrich-cuentos-del-sur"
+              target="_blank"
+            >
+              &#8594;&nbsp;Mehr zu dieser Veranstaltung
+            </a>
           </li>
 
           <li>
@@ -80,15 +96,15 @@ export default function Schedule() {
               an dem die Protagonisten sämtlicher Weltraumheldenserien ihre
               Freude hätten.
             </p>
-            <h4>Cuentos Del Sur</h4>
+            <h4>Black Patti</h4>
             <p>
-              Mit rassiger Flamencogitarre, virtuosem Violoncello und spanischem
-              Gesang begeben sich die beiden Musiker auf eine Tour, die vor
-              allem durch den Süden Spaniens, durch Andalusien führt.
+              Mit ihrem abwechslungsreichen Roots-Musik-Repertoire zwischen
+              tiefschwarzem Delta Blues, federndem Ragtime und beseelten
+              Spirituals.
             </p>
             <a
               className="learnMore"
-              href="https://bosco-gauting.de/veranstaltungen/gautinglive-organ-explosion-cuentos-del-sur"
+              href="https://bosco-gauting.de/veranstaltungen/gautinglive-organ-explosion-black-patti"
               target="_blank"
             >
               &#8594;&nbsp;Mehr zu dieser Veranstaltung
