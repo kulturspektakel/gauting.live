@@ -99,14 +99,10 @@ export default function Home(props: Props) {
           <div className="goal">
             <h3>Es geht noch weiter&hellip;</h3>
             <p>
-              Aber bitte auch jetzt noch nicht mit dem Spenden aufhören! Wenn
-              wir die {formatCurrency(props.goals[0], false)}-Marke knacken,
-              gibt neben den schon bestätigten sechs Veranstaltungen noch ein
-              zusätzliches Online-Kultur-Highlight aus dem Bosco.
-            </p>
-            <p>
-              Und dann ist hoffentlich der Frühling da und wir können wieder
-              echte Live-Konzerte erleben.
+              Alle Spenden, die jetzt noch eingehen, werden wir unter den
+              Beteiligten gerecht verteilen. Während der Konzerte selbst kann
+              live gespendet werden – alles zugunsten der jeweils auftretenden
+              Künstler*innen.
             </p>
           </div>
         </div>
