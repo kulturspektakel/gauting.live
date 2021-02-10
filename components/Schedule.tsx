@@ -64,19 +64,16 @@ export default function Schedule() {
             <time>Freitag, 5. März, 20:00 Uhr</time>
             <h4>Lasst uns träumen&hellip;</h4>
             <p>
-              Musik &amp; Texte interpretiert von
-              <br />
-              Halina Bertram &#8211; Klavier
-              <br />
-              Gisela Auspurg &#8211; Violoncello
-              <br />
-              Ernst Matthias Friedrich &#8211; Sprecher
+              Musik &amp; Texte interpretiert von Halina Bertram (Klavier),
+              Gisela Auspurg (Violoncello) und Ernst Matthias Friedrich
+              (Sprecher)
             </p>
-            <h4>Cuentos Del Sur</h4>
+            <h4>Ricardo Volkert &amp; Jost-H. Hecker</h4>
             <p>
-              Mit rassiger Flamencogitarre, virtuosem Violoncello und spanischem
-              Gesang begeben sich die beiden Musiker auf eine Tour, die vor
-              allem durch den Süden Spaniens, durch Andalusien führt.
+              &bdquo;Cuentos Del Sur&rdquo; Mit rassiger Flamencogitarre,
+              virtuosem Violoncello und spanischem Gesang begeben sich die
+              beiden Musiker auf eine Tour, die vor allem durch den Süden
+              Spaniens, durch Andalusien führt.
             </p>
             <a
               className="learnMore"
