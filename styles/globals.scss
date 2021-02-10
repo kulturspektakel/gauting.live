@@ -623,6 +623,25 @@ li {
       display: inline-block;
     }
   }
+
+  .video {
+    width: 100%;
+    padding-top: 42%;
+    position: relative;
+    margin-bottom: 20px;
+
+    iframe {
+      background: black;
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 5px;
+    }
+  }
 }
 
 .reminder {

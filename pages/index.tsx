@@ -52,14 +52,14 @@ export default function Home(props: Props) {
           <div>
             <img src="/saving-piggy-coins-alternate.svg" width="40" />
             <br />
-            Spendenfinanziert möchten wir eine Reihe an Videostreams mit
-            Live-Musik, Lesungen, Talks mit bekannten und neuen Gästen anbieten.
+            Spendenfinanziert bieten wir eine Reihe Videostreams mit Live-Musik,
+            Lesungen, Talks mit bekannten und neuen Gästen an.
           </div>
 
           <div>
             <img src="/video-game-logo-stream.svg" width="40" />
             <br />
-            Die Veranstaltungen sollen per Livestream aus dem bosco übertragen
+            Die Veranstaltungen werden per Livestream aus dem bosco übertragen
             werden und anschließend als Aufzeichnung angeboten werden.
           </div>
 
@@ -87,12 +87,12 @@ export default function Home(props: Props) {
             </div> */}
             <p>
               Mit den bisherigen Spenden, die alle Erwartungen übertroffen
-              haben, können wir sogar sechs statt der geplanten fünf
-              Veranstaltungen mit mittlerweile insgesamt neun Live-Acts auf die
-              Beine stellen. Vor allem können wir aber auch dem 10-köpfigen
-              Event-Produktionsteam, das wie auch die Künstler*innen von der
-              Pandemie betroffen ist, etwas mehr als eine symbolische
-              Aufwands&shy;entschädigung für Equipment und Arbeitszeit zahlen.
+              haben, können wir sieben Veranstaltungen mit insgesamt neun
+              Live-Acts auf die Beine stellen. Vor allem können wir aber auch
+              dem 10-köpfigen Event-Produktionsteam, das wie auch die
+              Künstler*innen von der Pandemie betroffen ist, etwas mehr als eine
+              symbolische Aufwands&shy;entschädigung für Equipment und
+              Arbeitszeit zahlen.
             </p>
           </div>
 
@@ -171,6 +171,9 @@ export default function Home(props: Props) {
               </a>
               <a target="_blank" href="http://mcfadden.de">
                 <img src="/mcfadden.svg" alt="McFadden Veranstaltungstechnik" />
+              </a>
+              <a target="_blank" href="https://acoustic-service.de/">
+                <img src="/acousticservice.svg" alt="Acoustic Service" />
               </a>
             </div>
           </div>

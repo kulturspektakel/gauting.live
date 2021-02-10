@@ -2,6 +2,13 @@ export default function Schedule() {
   return (
     <div className="container goals">
       <div className="goal schedule">
+        <div className="video">
+          <iframe
+            src="https://vimeo.com/showcase/8085104/embed"
+            allowFullScreen
+            frameBorder="0"
+          ></iframe>
+        </div>
         <ul>
           <li>
             <time>Freitag, 12. Februar, 20:00 Uhr</time>
