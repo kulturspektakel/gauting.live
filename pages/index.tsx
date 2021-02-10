@@ -87,7 +87,7 @@ export default function Home(props: Props) {
             </div> */}
             <p>
               Mit den bisherigen Spenden, die alle Erwartungen übertroffen
-              haben, können wir sieben Veranstaltungen mit insgesamt neun
+              haben, können wir sechs Veranstaltungen mit insgesamt neun
               Live-Acts auf die Beine stellen. Vor allem können wir aber auch
               dem 10-köpfigen Event-Produktionsteam, das wie auch die
               Künstler*innen von der Pandemie betroffen ist, etwas mehr als eine
