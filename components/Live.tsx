@@ -34,11 +34,24 @@ export default React.forwardRef<
                 allowFullScreen
                 scrolling="no"
                 allow="encrypted-media"
-                src={`https://www.facebook.com/plugins/video.php?autoplay=true&href=https%3A%2F%2Fwww.facebook.com%2F${liveVideo.pageId}%2Fvideos%2F${liveVideo.videoId}%2F`}
+                src={`https://www.facebook.com/plugins/video.php?autoplay=${
+                  liveVideo.status === "live" ? "true" : "false"
+                }&href=https%3A%2F%2Fwww.facebook.com%2F${
+                  liveVideo.pageId
+                }%2Fvideos%2F${liveVideo.videoId}%2F`}
               />
             )}
           </div>
         </div>
+        {
+          <a
+            className="openLink"
+            target="_blank"
+            href={`https://facebook.com/${liveVideo.pageId}/videos/${liveVideo.videoId}`}
+          >
+            Video in externem Player öffnen
+          </a>
+        }
       </div>
     </main>
   );

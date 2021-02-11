@@ -778,19 +778,33 @@ li {
     background-color: #2f343e;
   }
 
+  .openLink {
+    font-size: 0.9em;
+    display: inline-block;
+    margin-bottom: 60px;
+    opacity: 0.6;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    @media only screen and (max-width: 767px) {
+      margin-bottom: 20px;
+    }
+  }
+
   .video {
     width: 100%;
     padding-top: 56.25%;
     position: relative;
     border-radius: 15px;
     background-color: black;
+    margin-bottom: 10px;
 
     margin-top: 20px;
-    margin-bottom: 60px;
 
     @media only screen and (max-width: 767px) {
       margin-top: 0px;
-      margin-bottom: 20px;
     }
 
     .videoInner {
