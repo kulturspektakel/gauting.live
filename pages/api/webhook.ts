@@ -121,17 +121,17 @@ async function sendSMS(title?: string) {
 
   for (const reminder of reminders) {
     // REMOVE!!!
-    if (reminder.number === "01606677011") {
-      const { status } = await client.messages.create({
-        body: `🔴 Wir sind live mit "${title}": https://gauting.live`,
-        from: "gautingLIVE",
-        messagingServiceSid: process.env.TWILIO_MESSAGING_SID,
-        to: reminder.number
-          .replace(/^0049/, "+49")
-          .replace(/^49/, "+49")
-          .replace(/^0/, "+49"),
-      });
-      console.log(reminder.number, status);
-    }
+    //if (reminder.number === "01606677011") {
+    const { status } = await client.messages.create({
+      body: `🔴 Wir sind live mit "${title}": https://gauting.live`,
+      from: "gautingLIVE",
+      messagingServiceSid: process.env.TWILIO_MESSAGING_SID,
+      to: reminder.number
+        .replace(/^0049/, "+49")
+        .replace(/^49/, "+49")
+        .replace(/^0/, "+49"),
+    });
+    console.log(reminder.number, status);
+    //}
   }
 }
