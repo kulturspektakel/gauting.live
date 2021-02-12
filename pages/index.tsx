@@ -110,7 +110,7 @@ export default function Home(props: Props) {
       <div className="container">
         <DonateNow />
       </div>
-      {!hasVideo && (
+      {!hasVideo ? (
         <>
           <main className="live">
             <div className="container">
@@ -122,6 +122,8 @@ export default function Home(props: Props) {
           </main>
           <Schedule />
         </>
+      ) : (
+        <Schedule />
       )}
       <main>
         <div className="container">
