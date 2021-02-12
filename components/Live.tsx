@@ -43,15 +43,14 @@ export default React.forwardRef<
             )}
           </div>
         </div>
-        {liveVideo.status === "live" && (
-          <a
-            className="openLink"
-            target="_blank"
-            href={`https://facebook.com/${liveVideo.pageId}/videos/${liveVideo.videoId}`}
-          >
-            Video in externem Player öffnen
-          </a>
-        )}
+
+        <a
+          className="openLink"
+          target="_blank"
+          href={`https://facebook.com/${liveVideo.pageId}/videos/${liveVideo.videoId}`}
+        >
+          {liveVideo.status === "live" ? "Video in externem Player öffnen" : ""}
+        </a>
       </div>
     </main>
   );
