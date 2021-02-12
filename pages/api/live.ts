@@ -12,7 +12,7 @@ export async function fetchLive() {
       hours: 8,
     }),
     lt: add(new Date(), {
-      hours: 2,
+      hours: 8,
     }),
   };
 
