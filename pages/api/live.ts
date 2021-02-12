@@ -9,10 +9,10 @@ export default async (_req: NextApiRequest, res: NextApiResponse) =>
 export async function fetchLive() {
   const isToday = {
     gt: sub(new Date(), {
-      hours: 2,
+      hours: 8,
     }),
     lt: add(new Date(), {
-      hours: 8,
+      hours: 2,
     }),
   };
 
