@@ -9,7 +9,6 @@ export default function Schedule() {
           <li>
             <time>Freitag, 12. Februar, 20:00 Uhr</time>
 
-            <Video url="https://www.facebook.com/plugins/video.php?autoplay=false&href=https%3A%2F%2Fwww.facebook.com%2F102218295219502%2Fvideos%2F191330136016300%2F" />
             <h4>Ludwig Seuss Band</h4>
             <p>
               Mit seiner Band vermischt Ludwig Seuss klassischen Piano-Boogie
@@ -27,6 +26,7 @@ export default function Schedule() {
             >
               &#8594;&nbsp;Mehr zu dieser Veranstaltung
             </a>
+            <Video url="https://www.facebook.com/plugins/video.php?autoplay=false&href=https%3A%2F%2Fwww.facebook.com%2F102218295219502%2Fvideos%2F191330136016300%2F" />
           </li>
 
           <li>
