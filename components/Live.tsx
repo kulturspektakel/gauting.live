@@ -1,6 +1,7 @@
 import React from "react";
 import Countdown from "./Countdown";
-import live, { fetchLive } from "../pages/api/live";
+import { fetchLive } from "../pages/api/live";
+import Video from "./Video";
 
 export default React.forwardRef<
   any,
@@ -14,10 +15,10 @@ export default React.forwardRef<
   return (
     <main className="livestream" ref={ref}>
       <div className="container">
-        <div className="video">
-          <div className="videoInner">
-            {liveVideo.status === "scheduled_unpublished" &&
-            liveVideo.planned_start_time ? (
+        {liveVideo.status === "scheduled_unpublished" &&
+        liveVideo.planned_start_time ? (
+          <div className="video">
+            <div className="videoInner">
               <div className="info">
                 <Countdown
                   date={new Date(liveVideo.planned_start_time)}
@@ -26,23 +27,17 @@ export default React.forwardRef<
                 <h3>{liveVideo.title}</h3>
                 <p>{liveVideo.description}</p>
               </div>
-            ) : (
-              <iframe
-                width="100%"
-                height="100%"
-                frameBorder="0"
-                allowFullScreen
-                scrolling="no"
-                allow="encrypted-media"
-                src={`https://www.facebook.com/plugins/video.php?autoplay=${
-                  liveVideo.status === "live" ? "true" : "false"
-                }&href=https%3A%2F%2Fwww.facebook.com%2F${
-                  liveVideo.pageId
-                }%2Fvideos%2F${liveVideo.videoId}%2F`}
-              />
-            )}
+            </div>
           </div>
-        </div>
+        ) : (
+          <Video
+            url={`https://www.facebook.com/plugins/video.php?autoplay=${
+              liveVideo.status === "live" ? "true" : "false"
+            }&href=https%3A%2F%2Fwww.facebook.com%2F${
+              liveVideo.pageId
+            }%2Fvideos%2F${liveVideo.videoId}%2F`}
+          />
+        )}
 
         <a
           className="openLink"

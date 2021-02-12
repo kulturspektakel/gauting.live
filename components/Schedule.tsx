@@ -1,17 +1,15 @@
+import React from "react";
+import Video from "./Video";
+
 export default function Schedule() {
   return (
     <div className="container goals">
       <div className="goal schedule">
-        <div className="video">
-          <iframe
-            src="https://vimeo.com/showcase/8085104/embed"
-            allowFullScreen
-            frameBorder="0"
-          ></iframe>
-        </div>
         <ul>
           <li>
             <time>Freitag, 12. Februar, 20:00 Uhr</time>
+
+            <Video url="https://www.facebook.com/plugins/video.php?autoplay=false&href=https%3A%2F%2Fwww.facebook.com%2F102218295219502%2Fvideos%2F191330136016300%2F" />
             <h4>Ludwig Seuss Band</h4>
             <p>
               Mit seiner Band vermischt Ludwig Seuss klassischen Piano-Boogie

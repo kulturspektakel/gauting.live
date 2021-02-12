@@ -9,7 +9,6 @@ import Page from "../components/Page";
 import Reminder from "../components/Reminder";
 import Schedule from "../components/Schedule";
 import Live from "../components/Live";
-import formatCurrency from "../utils/formatCurrency";
 import { useInView } from "react-intersection-observer";
 import { fetchLive } from "./api/live";
 import useSWR from "swr";
@@ -110,21 +109,15 @@ export default function Home(props: Props) {
       <div className="container">
         <DonateNow />
       </div>
-      {!hasVideo ? (
-        <>
-          <main className="live">
-            <div className="container">
-              <div className="inner">
-                <h2>Livestream</h2>
-                <Reminder isDark />
-              </div>
-            </div>
-          </main>
-          <Schedule />
-        </>
-      ) : (
-        <Schedule />
-      )}
+      <main className="live">
+        <div className="container">
+          <div className="inner">
+            <h2>Livestream</h2>
+            <Reminder isDark />
+          </div>
+        </div>
+      </main>
+      <Schedule />
       <main>
         <div className="container">
           <h2>Spenden</h2>
