@@ -42,6 +42,7 @@ export default function Schedule() {
               target="_blank"
             >
               &#8594;&nbsp;Mehr zu dieser Veranstaltung
+              <Video url="https://www.facebook.com/plugins/video.php?autoplay=false&href=https%3A%2F%2Fwww.facebook.com%2F102218295219502%2Fvideos%2F741202266785462%2F" />
             </a>
           </li>
 
