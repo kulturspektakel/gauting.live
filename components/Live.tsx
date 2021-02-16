@@ -31,11 +31,9 @@ export default React.forwardRef<
           </div>
         ) : (
           <Video
-            url={`https://www.facebook.com/plugins/video.php?autoplay=${
-              liveVideo.status === "live" ? "true" : "false"
-            }&href=https%3A%2F%2Fwww.facebook.com%2F${
-              liveVideo.pageId
-            }%2Fvideos%2F${liveVideo.videoId}%2F`}
+            autoPlay={liveVideo.status === "live"}
+            id={liveVideo.videoId}
+            page={liveVideo.pageId}
           />
         )}
 

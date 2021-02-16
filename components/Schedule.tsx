@@ -26,7 +26,7 @@ export default function Schedule() {
             >
               &#8594;&nbsp;Mehr zu dieser Veranstaltung
             </a>
-            <Video url="https://www.facebook.com/plugins/video.php?autoplay=false&href=https%3A%2F%2Fwww.facebook.com%2F102218295219502%2Fvideos%2F169705801373499%2F" />
+            <Video id="169705801373499" page="102218295219502" />
           </li>
 
           <li>
@@ -43,9 +43,7 @@ export default function Schedule() {
             >
               &#8594;&nbsp;Mehr zu dieser Veranstaltung
             </a>
-            <Video url="https://www.facebook.com/plugins/video.php?autoplay=false&href=https%3A%2F%2Fwww.facebook.com%2F102218295219502%2Fvideos%2F741202266785462%2F" />
           </li>
-
           <li>
             <time>Freitag, 26. Februar, 20:00 Uhr</time>
             <h4>Faltsch Wagoni</h4>
