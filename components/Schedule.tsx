@@ -26,7 +26,7 @@ export default function Schedule() {
             >
               &#8594;&nbsp;Mehr zu dieser Veranstaltung
             </a>
-            <Video url="https://www.youtube-nocookie.com/embed/xoU6oxA1f-Q?showinfo=0&rel=0&iv_load_policy=3" />
+            <Video url="https://www.facebook.com/plugins/video.php?autoplay=false&href=https%3A%2F%2Fwww.facebook.com%2F102218295219502%2Fvideos%2F169705801373499%2F" />
           </li>
 
           <li>
@@ -43,7 +43,7 @@ export default function Schedule() {
             >
               &#8594;&nbsp;Mehr zu dieser Veranstaltung
             </a>
-            <Video url="https://www.youtube-nocookie.com/embed/WE31T0qZ-i0?showinfo=0&rel=0&iv_load_policy=3" />
+            <Video url="https://www.facebook.com/plugins/video.php?autoplay=false&href=https%3A%2F%2Fwww.facebook.com%2F102218295219502%2Fvideos%2F741202266785462%2F" />
           </li>
 
           <li>
