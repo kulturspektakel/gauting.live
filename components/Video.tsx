@@ -1,18 +1,24 @@
 import { detect } from "detect-browser";
 
-export default function Video({
-  id,
-  autoPlay,
-  page,
-}: {
-  id: string;
+export default function Video(props: {
+  id?: string;
   autoPlay?: boolean;
-  page: string;
+  page?: string;
+  url?: string;
 }) {
+  const url =
+    props.url ??
+    `https://www.facebook.com/plugins/video.php?autoplay=${
+      props.autoPlay ? "true" : "false"
+    }&href=https%3A%2F%2Fwww.facebook.com%2F${props.page}%2Fvideos%2F${
+      props.id
+    }%2F`;
+
   const browser = detect();
   const linkExternal =
-    browser?.name === "edge" ||
-    (browser?.name === "safari" && browser.os === "Mac OS");
+    props.id &&
+    (browser?.name === "edge" ||
+      (browser?.name === "safari" && browser.os === "Mac OS"));
   return (
     <div className="video">
       <div className="videoInner">
@@ -23,12 +29,10 @@ export default function Video({
           allowFullScreen
           scrolling="no"
           allow="encrypted-media"
-          src={`https://www.facebook.com/plugins/video.php?autoplay=${
-            autoPlay ? "true" : "false"
-          }&href=https%3A%2F%2Fwww.facebook.com%2F${page}%2Fvideos%2F${id}%2F`}
+          src={url}
         />
 
-        {!autoPlay && linkExternal && (
+        {!props.autoPlay && linkExternal && (
           <a
             className="openVideo"
             href={`https://fb.com/${id}`}

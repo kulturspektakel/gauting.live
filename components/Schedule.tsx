@@ -26,7 +26,7 @@ export default function Schedule() {
             >
               &#8594;&nbsp;Mehr zu dieser Veranstaltung
             </a>
-            <Video id="169705801373499" page="102218295219502" />
+            <Video url="https://www.youtube-nocookie.com/embed/xoU6oxA1f-Q?showinfo=0&rel=0&iv_load_policy=3" />
           </li>
 
           <li>
