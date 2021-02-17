@@ -35,7 +35,7 @@ export default function Video(props: {
         {!props.autoPlay && linkExternal && (
           <a
             className="openVideo"
-            href={`https://fb.com/${id}`}
+            href={`https://fb.com/${props.id}`}
             target="_blank"
           />
         )}
