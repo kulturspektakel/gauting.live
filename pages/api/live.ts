@@ -45,6 +45,7 @@ export async function fetchLive() {
       title: true,
       description: true,
       status: true,
+      youtube: true,
     },
   });
 

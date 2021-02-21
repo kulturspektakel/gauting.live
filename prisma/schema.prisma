@@ -37,6 +37,7 @@ model live {
   title                String?
   description          String?
   status               VideoStatus
+  youtube              String?
 }
 
 model reminders {

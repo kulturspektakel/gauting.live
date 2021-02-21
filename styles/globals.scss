@@ -797,19 +797,10 @@ li {
     background-color: #2f343e;
   }
 
-  .openLink {
-    font-size: 0.9em;
-    display: inline-block;
-    margin-bottom: 60px;
-    opacity: 0.6;
+  padding-bottom: 30px;
 
-    &:hover {
-      opacity: 1;
-    }
-
-    @media only screen and (max-width: 767px) {
-      margin-bottom: 20px;
-    }
+  @media only screen and (max-width: 767px) {
+    padding-bottom: 10px;
   }
 
   .video {

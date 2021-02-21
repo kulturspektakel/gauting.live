@@ -1,24 +1,10 @@
-import { detect } from "detect-browser";
-
-export default function Video(props: {
+export default function Video({
+  id,
+  autoPlay,
+}: {
   id?: string;
   autoPlay?: boolean;
-  page?: string;
-  url?: string;
 }) {
-  const url =
-    props.url ??
-    `https://www.facebook.com/plugins/video.php?autoplay=${
-      props.autoPlay ? "true" : "false"
-    }&href=https%3A%2F%2Fwww.facebook.com%2F${props.page}%2Fvideos%2F${
-      props.id
-    }%2F`;
-
-  const browser = detect();
-  const linkExternal =
-    props.id &&
-    (browser?.name === "edge" ||
-      (browser?.name === "safari" && browser.os === "Mac OS"));
   return (
     <div className="video">
       <div className="videoInner">
@@ -29,16 +15,10 @@ export default function Video(props: {
           allowFullScreen
           scrolling="no"
           allow="encrypted-media"
-          src={url}
+          src={`https://www.youtube-nocookie.com/embed/${id}?autoplay=${
+            autoPlay ? "1" : "0"
+          }&fs=1&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&vq=hd1080`}
         />
-
-        {!props.autoPlay && linkExternal && (
-          <a
-            className="openVideo"
-            href={`https://fb.com/${props.id}`}
-            target="_blank"
-          />
-        )}
       </div>
     </div>
   );

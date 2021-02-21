@@ -32,18 +32,9 @@ export default React.forwardRef<
         ) : (
           <Video
             autoPlay={liveVideo.status === "live"}
-            id={liveVideo.videoId}
-            page={liveVideo.pageId}
+            id={liveVideo.youtube ?? ""}
           />
         )}
-
-        <a
-          className="openLink"
-          target="_blank"
-          href={`https://facebook.com/${liveVideo.pageId}/videos/${liveVideo.videoId}`}
-        >
-          {liveVideo.status === "live" ? "Video in externem Player öffnen" : ""}
-        </a>
       </div>
     </main>
   );
