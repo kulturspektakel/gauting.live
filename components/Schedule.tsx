@@ -43,6 +43,7 @@ export default function Schedule() {
             >
               &#8594;&nbsp;Mehr zu dieser Veranstaltung
             </a>
+            <Video id="WE31T0qZ-i0" />
           </li>
           <li>
             <time>Freitag, 26. Februar, 20:00 Uhr</time>
