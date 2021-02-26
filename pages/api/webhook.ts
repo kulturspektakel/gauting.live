@@ -131,10 +131,7 @@ export async function sendSMS(title: string, live: boolean = false) {
         body: `🔴 Wir sind live mit "${title}": https://gauting.live`,
         from: "gautingLIVE",
         messagingServiceSid: process.env.TWILIO_MESSAGING_SID,
-        to: reminder.number
-          .replace(/^0049/, "+49")
-          .replace(/^49/, "+49")
-          .replace(/^0/, "+49"),
+        to: reminder.number,
       });
       console.log(reminder.number, status);
     }

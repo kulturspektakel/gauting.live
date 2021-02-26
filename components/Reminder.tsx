@@ -19,11 +19,10 @@ export default function Reminder(props: Props) {
   }, []);
 
   const onClick = useCallback(async () => {
-    const normalizedTel = tel.replace(/\D/g, "");
-    if (normalizedTel.length > 5) {
+    if (tel.length > 5) {
       localStorage.setItem("reminder", tel);
       setSet(true);
-      await fetch(`/api/reminder?tel=${normalizedTel}`);
+      await fetch(`/api/reminder?tel=${tel}`);
     }
   }, [setSet, tel]);
 
