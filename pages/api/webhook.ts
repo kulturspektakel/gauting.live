@@ -126,14 +126,14 @@ export async function sendSMS(title: string, live: boolean = false) {
   });
 
   for (const reminder of reminders) {
-    if (reminder.number) {
-      const { status } = await client.messages.create({
-        body: `🔴 Wir sind live mit "${title}": https://gauting.live`,
-        from: "gautingLIVE",
-        messagingServiceSid: process.env.TWILIO_MESSAGING_SID,
-        to: reminder.number,
-      });
-      console.log(reminder.number, status);
-    }
+    // if (reminder.number) {
+    //   const { status } = await client.messages.create({
+    //     body: `🔴 Wir sind live mit "${title}": https://gauting.live`,
+    //     from: "gautingLIVE",
+    //     messagingServiceSid: process.env.TWILIO_MESSAGING_SID,
+    //     to: reminder.number,
+    //   });
+    //   console.log(reminder.number, status);
+    // }
   }
 }
