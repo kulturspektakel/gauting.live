@@ -26,7 +26,7 @@ export default function Schedule() {
             >
               &#8594;&nbsp;Mehr zu dieser Veranstaltung
             </a>
-            <Video id="xoU6oxA1f-Q" />
+            <Video id="xoU6oxA1f-Q" service="youtube" />
           </li>
 
           <li>
@@ -43,7 +43,7 @@ export default function Schedule() {
             >
               &#8594;&nbsp;Mehr zu dieser Veranstaltung
             </a>
-            <Video id="WE31T0qZ-i0" />
+            <Video id="WE31T0qZ-i0" service="youtube" />
           </li>
           <li>
             <time>Freitag, 26. Februar, 20:00 Uhr</time>
@@ -64,7 +64,7 @@ export default function Schedule() {
             >
               &#8594;&nbsp;Mehr zu dieser Veranstaltung
             </a>
-            <Video id="n7E2LW9r_Is" />
+            <Video id="n7E2LW9r_Is" service="youtube" />
           </li>
           <li>
             <time>Freitag, 5. März, 20:00 Uhr</time>

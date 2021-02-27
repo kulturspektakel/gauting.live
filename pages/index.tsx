@@ -15,6 +15,7 @@ import useSWR from "swr";
 
 type Props = BetterplaceData & {
   liveVideo: Await<ReturnType<typeof fetchLive>>;
+  fbCapableBrowser: boolean;
 };
 
 export default function Home(props: Props) {
@@ -34,7 +35,11 @@ export default function Home(props: Props) {
   return (
     <Page dark={hasVideo && inView}>
       {hasVideo && liveVideo?.data && (
-        <Live liveVideo={liveVideo?.data} ref={ref} />
+        <Live
+          liveVideo={liveVideo?.data}
+          ref={ref}
+          fbCapableBrowser={props.fbCapableBrowser}
+        />
       )}
       <div className="container">
         <h1>
@@ -178,15 +183,22 @@ export default function Home(props: Props) {
   );
 }
 
-export const getServerSideProps: GetServerSideProps<Props> = async () => {
+export const getServerSideProps: GetServerSideProps<Props> = async ({
+  req,
+}) => {
   const [betterplaceData, liveVideo] = await Promise.all([
     fetchBetterplaceData(),
     fetchLive(),
   ]);
+
+  const ua = String(req.headers["user-agent"]);
   return {
     props: {
       ...betterplaceData,
       liveVideo,
+      fbCapableBrowser:
+        /(?!Chrom.*OPR)Chrom(?:e|ium)\/([0-9\.]+)(:?\s|$)/.test(ua) ||
+        /Version\/([0-9\._]+).*Mobile.*Safari.*/.test(ua),
     },
   };
 };

@@ -1,6 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { Prisma, PrismaClient, VideoStatus } from "@prisma/client";
-import twilio from "twilio";
 
 const prisma = new PrismaClient();
 
@@ -55,12 +54,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         return;
       }
 
-      const existing = await prisma.live.findUnique({
-        where: {
-          broadcastId: change.value.id,
-        },
-      });
-
       const fb: {
         video: {
           id: string;
@@ -73,10 +66,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       } = await fetch(
         `https://graph.facebook.com/${change.value.id}?access_token=${process.env.FB_TOKEN}&fields=video,planned_start_time,broadcast_start_time,title,description`
       ).then((res) => res.json());
-
-      if (change.value.status === "live" && existing?.status !== "live") {
-        await sendSMS(fb.title, entry.id === "102218295219502");
-      }
 
       const payload: Omit<Prisma.liveUncheckedCreateInput, "broadcastId"> = {
         status: change.value.status,
@@ -110,30 +99,3 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   return res.send("ok");
 };
-
-export async function sendSMS(title: string, live: boolean = false) {
-  const client = twilio(
-    process.env.TWILIO_ACCOUNT_SID,
-    process.env.TWILIO_AUTH_TOKEN
-  );
-
-  const reminders = await prisma.reminders.findMany({
-    where: live
-      ? {}
-      : {
-          debug: true,
-        },
-  });
-
-  for (const reminder of reminders) {
-    // if (reminder.number) {
-    //   const { status } = await client.messages.create({
-    //     body: `🔴 Wir sind live mit "${title}": https://gauting.live`,
-    //     from: "gautingLIVE",
-    //     messagingServiceSid: process.env.TWILIO_MESSAGING_SID,
-    //     to: reminder.number,
-    //   });
-    //   console.log(reminder.number, status);
-    // }
-  }
-}

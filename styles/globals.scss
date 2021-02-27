@@ -803,6 +803,15 @@ li {
     padding-bottom: 10px;
   }
 
+  .openYouTube {
+    opacity: 0.5;
+    font-size: 0.9em;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
   .video {
     margin-bottom: 10px;
     margin-top: 20px;
@@ -862,6 +871,78 @@ li {
 
       iframe {
         border-radius: 15px;
+      }
+
+      .openExternal {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        color: white;
+        overflow: hidden;
+        border-radius: 15px;
+
+        .backgroundVid {
+          object-fit: cover;
+          width: 100%;
+          height: 100%;
+          filter: blur(20px) saturate(200%);
+          border-radius: 15px;
+        }
+
+        .liveBadge {
+          font-weight: bold;
+          text-transform: uppercase;
+          background: #ea0000;
+          display: inline-block;
+          padding: 3px 10px;
+          border-radius: 5px;
+
+          position: absolute;
+          top: 15px;
+          left: 15px;
+
+          animation-direction: alternate;
+          animation-duration: 0.7s;
+          animation-iteration-count: infinite;
+          animation-name: fadeRed;
+          animation-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
+        }
+
+        @keyframes fadeRed {
+          from {
+            opacity: 0.7;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+
+        .liveTitle {
+          max-width: none;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          white-space: nowrap;
+          text-align: left;
+          font-weight: normal;
+          margin-left: 10px;
+          position: absolute;
+          bottom: 15px;
+          left: 15px;
+          right: 15px;
+          text-align: center;
+        }
+
+        .play {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          @media only screen and (max-width: 767px) {
+            margin-top: -10px;
+          }
+        }
       }
     }
   }
