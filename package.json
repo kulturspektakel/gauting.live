@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "sms": "yarn ts-node utils/sms.ts"
   },
   "dependencies": {
     "@prisma/client": "2.16.0",
@@ -14,6 +15,7 @@
     "date-fns": "^2.16.1",
     "detect-browser": "^5.2.0",
     "next": "10.0.5",
+    "phone": "^2.4.21",
     "prisma": "2.16.0",
     "qs": "^6.9.6",
     "react": "17.0.1",
@@ -31,6 +33,7 @@
     "@babel/core": "^7.12.13",
     "@types/inquirer": "^7.3.1",
     "@types/node": "^14.14.22",
+    "@types/phone": "^2.4.0",
     "@types/react": "^17.0.1",
     "babel-plugin-superjson-next": "^0.2.1",
     "inquirer": "^8.0.0",

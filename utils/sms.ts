@@ -1,6 +1,7 @@
 import twilio from "twilio";
 import { PrismaClient, reminders } from "@prisma/client";
 import inquirer from "inquirer";
+import { sub } from "date-fns";
 
 const prisma = new PrismaClient();
 
@@ -23,9 +24,7 @@ const client = twilio(
   console.log(body);
 
   const debugReminders = await prisma.reminders.findMany({
-    where: {
-      debug: true,
-    },
+    where: getWhere(true),
   });
 
   const { debug } = await inquirer.prompt([
@@ -40,7 +39,9 @@ const client = twilio(
     await send(body, debugReminders);
   }
 
-  const productionReminders = await prisma.reminders.findMany({});
+  const productionReminders = await prisma.reminders.findMany({
+    where: getWhere(false),
+  });
 
   const { production } = await inquirer.prompt([
     {
@@ -62,16 +63,46 @@ async function send(body: string, res: reminders[]) {
   for (const reminder of res) {
     if (reminder.number) {
       try {
-        const { status } = await client.messages.create({
+        const { status, errorCode } = await client.messages.create({
           body,
           from: "gautingLIVE",
           messagingServiceSid: process.env.TWILIO_MESSAGING_SID,
           to: reminder.number,
         });
-        console.log(reminder.number, status);
+
+        if (errorCode == null) {
+          await prisma.reminders.update({
+            where: {
+              number: reminder.number,
+            },
+            data: {
+              lastContacted: new Date(),
+            },
+          });
+          console.log(`${reminder.number}: ${status}`);
+        } else {
+          throw new Error(String(errorCode));
+        }
       } catch (e) {
         console.error(`Failed to send to: ${reminder.number}: ${e}`);
       }
     }
   }
+}
+
+function getWhere(debug: boolean) {
+  return {
+    OR: [
+      {
+        debug,
+        lastContacted: {
+          lt: sub(new Date(), { hours: 8 }),
+        },
+      },
+      {
+        debug,
+        lastContacted: null,
+      },
+    ],
+  };
 }

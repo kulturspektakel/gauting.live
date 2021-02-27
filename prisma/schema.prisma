@@ -41,8 +41,9 @@ model live {
 }
 
 model reminders {
-  id        Int       @id @default(autoincrement())
-  timestamp DateTime? @default(now())
-  number    String?
-  debug     Boolean   @default(false)
+  id            Int       @id @default(autoincrement())
+  timestamp     DateTime  @default(now())
+  number        String    @unique
+  debug         Boolean   @default(false)
+  lastContacted DateTime?
 }

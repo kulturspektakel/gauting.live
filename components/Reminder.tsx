@@ -18,13 +18,26 @@ export default function Reminder(props: Props) {
     setSet(Boolean(localStorage.getItem("reminder")));
   }, []);
 
-  const onClick = useCallback(async () => {
-    if (tel.length > 5) {
-      localStorage.setItem("reminder", tel);
-      setSet(true);
-      await fetch(`/api/reminder?tel=${tel}`);
-    }
-  }, [setSet, tel]);
+  const onClick = useCallback(
+    async (e: React.FormEvent | React.MouseEvent) => {
+      e.preventDefault();
+      if (tel.length > 5) {
+        localStorage.setItem("reminder", tel);
+        setSet(true);
+        try {
+          const res = await fetch(`/api/reminder?tel=${tel}`);
+          if (res.status !== 200) {
+            throw new Error();
+          }
+        } catch (e) {
+          localStorage.removeItem("reminder");
+          setSet(false);
+          alert("Ungültige Telefonnummer");
+        }
+      }
+    },
+    [setSet, tel]
+  );
 
   return (
     <>
@@ -44,7 +57,7 @@ export default function Reminder(props: Props) {
         {!set ? (
           <div>
             <p>Per SMS an den Livestream erinnern lassen:</p>
-            <div className="form">
+            <form className="form" onSubmit={onClick}>
               <input
                 type="tel"
                 name="tel"
@@ -54,8 +67,10 @@ export default function Reminder(props: Props) {
                 value={tel}
                 onChange={(e) => setTel(e.target.value)}
               />
-              <button onClick={onClick}>Erinner' mich</button>
-            </div>
+              <button onClick={onClick} type="submit">
+                Erinner' mich
+              </button>
+            </form>
           </div>
         ) : (
           <div className="set">
