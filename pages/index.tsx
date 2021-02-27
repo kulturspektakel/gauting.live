@@ -191,14 +191,19 @@ export const getServerSideProps: GetServerSideProps<Props> = async ({
     fetchLive(),
   ]);
 
-  const ua = String(req.headers["user-agent"]);
+  const desktopChrome =
+    (req.headers["sec-ch-ua"]?.indexOf("Google Chrome") ?? "") > -1 &&
+    req.headers["sec-ch-ua-mobile"] === "?0";
+
+  const mobileSafari = /Version\/([0-9\._]+).*Mobile.*Safari.*/.test(
+    String(req.headers["user-agent"])
+  );
+
   return {
     props: {
       ...betterplaceData,
       liveVideo,
-      fbCapableBrowser:
-        /(?!Chrom.*OPR)Chrom(?:e|ium)\/([0-9\.]+)(:?\s|$)/.test(ua) ||
-        /Version\/([0-9\._]+).*Mobile.*Safari.*/.test(ua),
+      fbCapableBrowser: desktopChrome || mobileSafari,
     },
   };
 };
