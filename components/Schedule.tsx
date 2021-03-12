@@ -66,6 +66,8 @@ export default function Schedule() {
             </a>
             <Video id="n7E2LW9r_Is" service="youtube" />
           </li>
+        </ul>
+        <ul>
           <li>
             <time>Freitag, 5. März, 20:00 Uhr</time>
             <h4>Lasst uns träumen (Klassik)</h4>
@@ -120,6 +122,14 @@ export default function Schedule() {
             <p>
               Ein kunterbuntes Leuchtfeuer aus Balkan, Folk und Indie. Dazu der
               zweistimme Gesang von Rüdiger Sinn und Zlatko Pasalic.
+            </p>
+            <h4>Orientacion</h4>
+            <p>
+              Die Musik der drei Welt-Musiker Ehab Abou Fakher (Viola), Roman
+              Bunka (Oud) und Luis Borda (Gitarre) ist geprägt durch
+              argentinischen Tango und arabischen Taqsims, den
+              Klang-Konstruktionen Neuer Musik und der Liebe zu Rhythmus und
+              Improvisation.
             </p>
             <a
               className="learnMore"

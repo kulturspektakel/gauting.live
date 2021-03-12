@@ -586,12 +586,19 @@ li {
 }
 
 .schedule {
-  ul {
-    columns: 2;
-    column-gap: 25px;
+  display: flex;
+  @media only screen and (max-width: 767px) {
+    flex-direction: column;
+  }
 
-    @media only screen and (max-width: 767px) {
-      columns: 1;
+  ul {
+    flex-basis: 0;
+    flex-grow: 1;
+
+    @media only screen and (min-width: 768px) {
+      &:first-child {
+        margin-right: 30px;
+      }
     }
 
     li {
