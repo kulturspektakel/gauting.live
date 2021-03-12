@@ -94,7 +94,7 @@ export default function Page({ dark, children }: Props) {
       <main className="main">{children}</main>
       <footer className="footer">
         <div className="container">
-          <Link href="/impressum">Impressum</Link>
+          <Link href="/impressum">Impressum &amp; Kontakt</Link>
         </div>
       </footer>
     </div>

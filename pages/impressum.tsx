@@ -34,6 +34,9 @@ export default function Impressum(props: {}) {
           Bahnhofstr. 6<br />
           82131 Gauting
         </p>
+        <p>
+          <a href="mailto:info@gauting.live">info@gauting.live</a>
+        </p>
       </div>
     </Page>
   );
