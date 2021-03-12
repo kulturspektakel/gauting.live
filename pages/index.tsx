@@ -92,7 +92,7 @@ export default function Home(props: Props) {
             <p>
               Mit den bisherigen Spenden, die alle Erwartungen übertroffen
               haben, können wir sechs Ver&shy;anstal&shy;tungen mit insgesamt
-              zehn Live-Acts auf die Beine stellen. Vor allem können wir aber
+              elf Live-Acts auf die Beine stellen. Vor allem können wir aber
               auch dem 10-köpfigen Event-Produktionsteam, das wie auch die
               Künstler*innen von der Pandemie betroffen ist, etwas mehr als eine
               symbolische Aufwands&shy;entschädigung für Equipment und
@@ -107,6 +107,13 @@ export default function Home(props: Props) {
               Beteiligten gerecht verteilen. Während der Konzerte selbst kann
               live gespendet werden – alles zugunsten der jeweils auftretenden
               Künstler*innen.
+            </p>
+            <h3>Was kommt danach?</h3>
+            <p>
+              Am 26. März findet unsere vorerst letzte Veranstaltung statt. Wir
+              überlegen gerade wie es danach weiter gehen soll. Vorschläge und
+              Ideen könnt ihr gerne an{" "}
+              <a href="mailto:info@gauting.live">info@gauting.live</a> schicken.
             </p>
           </div>
         </div>
