@@ -20,6 +20,7 @@ export default function Bar(props: {
   return (
     <main className="current bgcolor">
       <div className="container">
+        <h3 className="season-two">Staffel 2</h3>
         <h2>
           <strong>{formatCurrency(props.totalAmount)}</strong> von{" "}
           {props.donationsCount}&nbsp;Spender*innen

@@ -782,6 +782,24 @@ li {
   }
 }
 
+.season-two {
+  font-family: "Barlow";
+  color: white;
+  background-color: #2f333f;
+  font-size: 16px;
+  padding: 8px 14px 9px;
+  display: inline-block;
+  text-transform: uppercase;
+  border-radius: 5px;
+  position: relative;
+  top: 50px;
+
+  @media only screen and (max-width: 767px) {
+    top: 5px;
+    margin-top: 20px;
+  }
+}
+
 .livestream {
   color: white;
   margin-top: -20px;

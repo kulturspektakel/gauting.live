@@ -4,8 +4,8 @@ async function fetchProject() {
   ).then((r) => r.json());
 
   return {
-    totalAmount: res.donated_amount_in_cents,
-    donationsCount: res.donations_count,
+    totalAmount: res.donated_amount_in_cents - 2570400,
+    donationsCount: res.donations_count - 569,
   };
 }
 
@@ -33,7 +33,7 @@ export async function fetchBetterplaceData() {
 
   return {
     ...project,
-    goals: [950000],
+    goals: [100000, 200000, 300000],
     opinions,
   };
 }

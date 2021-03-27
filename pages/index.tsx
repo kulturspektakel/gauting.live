@@ -12,6 +12,7 @@ import Live from "../components/Live";
 import { useInView } from "react-intersection-observer";
 import { fetchLive } from "./api/live";
 import useSWR from "swr";
+import formatCurrency from "../utils/formatCurrency";
 
 type Props = BetterplaceData & {
   liveVideo: Await<ReturnType<typeof fetchLive>>;
@@ -90,30 +91,32 @@ export default function Home(props: Props) {
               Ziel erreicht
             </div> */}
             <p>
-              Mit den bisherigen Spenden, die alle Erwartungen übertroffen
-              haben, können wir sechs Ver&shy;anstal&shy;tungen mit insgesamt
-              elf Live-Acts auf die Beine stellen. Vor allem können wir aber
-              auch dem 10-köpfigen Event-Produktionsteam, das wie auch die
-              Künstler*innen von der Pandemie betroffen ist, etwas mehr als eine
-              symbolische Aufwands&shy;entschädigung für Equipment und
-              Arbeitszeit zahlen.
+              Insgesamt sind {formatCurrency(2570400)} an Spenden für das
+              Projekt zusammen gekommen. Damit konnten wir unsere sechs
+              Ver&shy;anstal&shy;tungen der ersten Staffel mit insgesamt elf
+              Live-Acts auf die Beine stellen.
+            </p>
+            <p>
+              Neben den Künstler*innen konnten wir damit auch dem 10-köpfigen
+              Event-Produktionsteam, das wie auch die Künstler*innen von der
+              Pandemie betroffen ist, etwas mehr als eine symbolische
+              Aufwands&shy;entschädigung für Equipment und Arbeitszeit zahlen.
             </p>
           </div>
 
           <div className="goal">
-            <h3>Es geht noch weiter&hellip;</h3>
+            <h3>Wir gehen in die 2. Staffel</h3>
             <p>
-              Alle Spenden, die jetzt noch eingehen, werden wir unter den
-              Beteiligten gerecht verteilen. Während der Konzerte selbst kann
-              live gespendet werden – alles zugunsten der jeweils auftretenden
-              Künstler*innen.
+              Die Pandemie scheint uns noch etwas weiter zu begleiten. Deshalb
+              haben wir beschlossen auch mit gauting.live in eine zweite Staffel
+              zu gehen. Aktuell haben wir schon zwei Konzerte für den 16. und
+              24.&nbsp;April bestätigt. Wer auftreten wird, werden wir in Kürze
+              verraten.
             </p>
-            <h3>Was kommt danach?</h3>
             <p>
-              Am 26. März findet unsere vorerst letzte Veranstaltung statt. Wir
-              überlegen gerade wie es danach weiter gehen soll. Vorschläge und
-              Ideen könnt ihr gerne an{" "}
-              <a href="mailto:info@gauting.live">info@gauting.live</a> schicken.
+              Für die zweite Staffel haben wir auch unseren Spendenbalken
+              zurückgesetzt. Die Spenden der ersten Staffel sind ausgezahlt und
+              wir sammeln nun für die Künstler*innen der zweiten Staffel.
             </p>
           </div>
         </div>

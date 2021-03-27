@@ -139,6 +139,7 @@ export default function Schedule() {
             >
               &#8594;&nbsp;Mehr zu dieser Veranstaltung
             </a>
+            <Video id="qXDjDaNriXQ" service="youtube" />
           </li>
         </ul>
       </div>
