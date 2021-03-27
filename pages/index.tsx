@@ -103,7 +103,6 @@ export default function Home(props: Props) {
               Aufwands&shy;entschädigung für Equipment und Arbeitszeit zahlen.
             </p>
           </div>
-
           <div className="goal">
             <h3>Wir gehen in die 2. Staffel</h3>
             <p>
