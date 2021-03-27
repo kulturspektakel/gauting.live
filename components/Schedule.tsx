@@ -1,148 +1,189 @@
-import React from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Video from "./Video";
+import { CarouselProvider, Slider, Slide } from "pure-react-carousel";
+import "pure-react-carousel/dist/react-carousel.es.css";
+import { useWindowWidth } from "@react-hook/window-size";
 
 export default function Schedule() {
+  const windowWidth = useWindowWidth();
+  const [width, setWidth] = useState(300);
+  const [height, setHeight] = useState(300);
+
+  useEffect(() => {
+    setTimeout(() => updateSize(), 0);
+  }, [windowWidth]);
+
+  const updateSize = useCallback(() => {
+    const cards = Array.from(document.querySelectorAll(".card")).map((c) =>
+      c.getBoundingClientRect()
+    );
+    setHeight(cards.reduce((acc, card) => Math.max(acc, card.height), 0));
+    setWidth(cards.reduce((acc, card) => Math.max(acc, card.width), 0));
+  }, [setWidth, setHeight]);
+
+  const minWidth = 370;
+  const visibleSlides = Math.max(1, Math.floor(windowWidth / minWidth));
+
+  if (windowWidth === 0) {
+    return null;
+  }
+
   return (
-    <div className="container goals">
-      <div className="goal schedule">
-        <ul>
-          <li>
-            <time>Freitag, 12. Februar, 20:00 Uhr</time>
+    <CarouselProvider
+      naturalSlideWidth={width}
+      naturalSlideHeight={height}
+      totalSlides={6}
+      visibleSlides={visibleSlides}
+    >
+      <Slider className="schedule">
+        <Card
+          thumbnail="/s1e6.jpg"
+          index={5}
+          season={1}
+          episode={6}
+          youtube="qXDjDaNriXQ"
+          time="Freitag, 26. März, 20:00 Uhr"
+        >
+          <h4>Stray Colors</h4>
+          <p>
+            Ein kunterbuntes Leuchtfeuer aus Balkan, Folk und Indie. Dazu der
+            zweistimme Gesang von Rüdiger Sinn und Zlatko Pasalic.
+          </p>
+          <h4>Orientacion</h4>
+          <p>
+            Die Musik der drei Welt-Musiker Ehab Abou Fakher (Viola), Roman
+            Bunka (Oud) und Luis Borda (Gitarre) ist geprägt durch
+            argentinischen Tango und arabischen Taqsims, den
+            Klang-Konstruktionen Neuer Musik und der Liebe zu Rhythmus und
+            Improvisation.
+          </p>
+        </Card>
+        <Card
+          thumbnail="/s1e5.jpg"
+          index={4}
+          season={1}
+          episode={5}
+          youtube="txE-kQQ7QJY"
+          time="Freitag, 12. März, 20:00 Uhr"
+        >
+          <h4>Organ Explosion</h4>
+          <p>
+            Mit ihrem Sammelsurium analoger Instrumente aus den 60ern und 70ern,
+            mit Phaser, Flanger und Band-Echo kreieren sie einen Sound, an dem
+            die Protagonisten sämtlicher Weltraumheldenserien ihre Freude
+            hätten.
+          </p>
+          <h4>Black Patti</h4>
+          <p>
+            Mit ihrem abwechslungsreichen Roots-Musik-Repertoire zwischen
+            tiefschwarzem Delta Blues, federndem Ragtime und beseelten
+            Spirituals.
+          </p>
+        </Card>
+        <Card
+          thumbnail="/s1e4.jpg"
+          index={3}
+          season={1}
+          episode={4}
+          youtube="XkHTiG9GeDs"
+          time="Freitag, 5. März, 20:00 Uhr"
+        >
+          <h4>Lasst uns träumen (Klassik)</h4>
+          <p>
+            Musik &amp; Texte interpretiert von Halina Bertram (Klavier), Gisela
+            Auspurg (Violoncello) und Ernst Matthias Friedrich (Sprecher)
+          </p>
+          <h4>Cuentos Del Sur (Flamenco)</h4>
+          <p>
+            Mit rassiger Flamencogitarre, virtuosem Violoncello und spanischem
+            Gesang begeben sich Ricardo Volkert und Jost-H. Hecker auf eine
+            Tour, die vor allem durch den Süden Spaniens, durch Andalusien
+            führt.
+          </p>
+        </Card>
+        <Card
+          thumbnail="/s1e3.jpg"
+          index={2}
+          season={1}
+          episode={3}
+          youtube="n7E2LW9r_Is"
+          time="Freitag, 26. Februar, 20:00 Uhr"
+        >
+          <h4>Faltsch Wagoni</h4>
+          <p>
+            In ihren Programmen verbinden Der&amp;Die Prosperi satirische
+            Wortkunst und inszenierte Poetry-Songs zu außergewöhnlichen Shows.
+          </p>
+          <h4>BusStop Rokkers</h4>
+          <p>
+            Das ist Blues Rockabilly &amp; Seemannsgarn. Ein Road-Trip von
+            Tennessee bis an die peitschende Ostsee.
+          </p>
+        </Card>
+        <Card
+          thumbnail="/s1e2.jpg"
+          index={1}
+          season={1}
+          episode={2}
+          youtube="WE31T0qZ-i0"
+          time="Samstag, 13. Februar, 16:00 Uhr"
+        >
+          <h4>Greulmüllersche HörspielManufaktur</h4>
+          <p>
+            &bdquo;Pünktchen und Anton&rdquo; von Erich Kästner als
+            Live-Hörspiel-Abenteuer - für Kinder ab 6 und Erwachsene
+          </p>
+        </Card>
+        <Card
+          thumbnail="/s1e1.jpg"
+          index={0}
+          season={1}
+          episode={1}
+          youtube="xoU6oxA1f-Q"
+          time="Freitag, 12. Februar, 20:00 Uhr"
+        >
+          <h4>Ludwig Seuss Band</h4>
+          <p>
+            Mit seiner Band vermischt Ludwig Seuss klassischen Piano-Boogie mit
+            Jump-Blues und Louisiana-R&amp;R.
+          </p>
+          <h4>Erik Berthold</h4>
+          <p>
+            Erik Berthold spielt mit akustischer Gitarre Westcoast Music auf
+            seine eigene, sympathische Art interpretiert.{" "}
+          </p>
+        </Card>
+      </Slider>
+    </CarouselProvider>
+  );
+}
 
-            <h4>Ludwig Seuss Band</h4>
-            <p>
-              Mit seiner Band vermischt Ludwig Seuss klassischen Piano-Boogie
-              mit Jump-Blues und Louisiana-R&amp;R.
-            </p>
-            <h4>Erik Berthold</h4>
-            <p>
-              Erik Berthold spielt mit akustischer Gitarre Westcoast Music auf
-              seine eigene, sympathische Art interpretiert.{" "}
-            </p>
-            <a
-              className="learnMore"
-              href="https://bosco-gauting.de/veranstaltungen/gautinglive-ludwig-seuss-band-erik-berthold"
-              target="_blank"
-            >
-              &#8594;&nbsp;Mehr zu dieser Veranstaltung
-            </a>
-            <Video id="xoU6oxA1f-Q" service="youtube" />
-          </li>
-
-          <li>
-            <time>Samstag, 13. Februar, 16:00 Uhr</time>
-            <h4>Greulmüllersche HörspielManufaktur</h4>
-            <p>
-              &bdquo;Pünktchen und Anton&rdquo; von Erich Kästner als
-              Live-Hörspiel-Abenteuer - für Kinder ab 6 und Erwachsene
-            </p>
-            <a
-              className="learnMore"
-              href="https://bosco-gauting.de/veranstaltungen/gautinglive-puenktchen-und-anton"
-              target="_blank"
-            >
-              &#8594;&nbsp;Mehr zu dieser Veranstaltung
-            </a>
-            <Video id="WE31T0qZ-i0" service="youtube" />
-          </li>
-          <li>
-            <time>Freitag, 26. Februar, 20:00 Uhr</time>
-            <h4>Faltsch Wagoni</h4>
-            <p>
-              In ihren Programmen verbinden Der&amp;Die Prosperi satirische
-              Wortkunst und inszenierte Poetry-Songs zu außergewöhnlichen Shows.
-            </p>
-            <h4>BusStop Rokkers</h4>
-            <p>
-              Das ist Blues Rockabilly &amp; Seemannsgarn. Ein Road-Trip von
-              Tennessee bis an die peitschende Ostsee.
-            </p>
-            <a
-              className="learnMore"
-              href="https://bosco-gauting.de/veranstaltungen/gautinglive-faltsch-wagoni-busstop-rokkers"
-              target="_blank"
-            >
-              &#8594;&nbsp;Mehr zu dieser Veranstaltung
-            </a>
-            <Video id="n7E2LW9r_Is" service="youtube" />
-          </li>
-        </ul>
-        <ul>
-          <li>
-            <time>Freitag, 5. März, 20:00 Uhr</time>
-            <h4>Lasst uns träumen (Klassik)</h4>
-            <p>
-              Musik &amp; Texte interpretiert von Halina Bertram (Klavier),
-              Gisela Auspurg (Violoncello) und Ernst Matthias Friedrich
-              (Sprecher)
-            </p>
-            <h4>Cuentos Del Sur (Flamenco)</h4>
-            <p>
-              Mit rassiger Flamencogitarre, virtuosem Violoncello und spanischem
-              Gesang begeben sich Ricardo Volkert und Jost-H. Hecker auf eine
-              Tour, die vor allem durch den Süden Spaniens, durch Andalusien
-              führt.
-            </p>
-            <a
-              className="learnMore"
-              href="https://bosco-gauting.de/veranstaltungen/gautinglive-auspurg-bertram-friedrich-cuentos-del-sur"
-              target="_blank"
-            >
-              &#8594;&nbsp;Mehr zu dieser Veranstaltung
-            </a>
-            <Video id="XkHTiG9GeDs" service="youtube" />
-          </li>
-
-          <li>
-            <time>Freitag, 12. März, 20:00 Uhr</time>
-            <h4>Organ Explosion</h4>
-            <p>
-              Mit ihrem Sammelsurium analoger Instrumente aus den 60ern und
-              70ern, mit Phaser, Flanger und Band-Echo kreieren sie einen Sound,
-              an dem die Protagonisten sämtlicher Weltraumheldenserien ihre
-              Freude hätten.
-            </p>
-            <h4>Black Patti</h4>
-            <p>
-              Mit ihrem abwechslungsreichen Roots-Musik-Repertoire zwischen
-              tiefschwarzem Delta Blues, federndem Ragtime und beseelten
-              Spirituals.
-            </p>
-            <a
-              className="learnMore"
-              href="https://bosco-gauting.de/veranstaltungen/gautinglive-organ-explosion-black-patti"
-              target="_blank"
-            >
-              &#8594;&nbsp;Mehr zu dieser Veranstaltung
-            </a>
-            <Video id="txE-kQQ7QJY" service="youtube" />
-          </li>
-          <li>
-            <time>Freitag, 26. März, 20:00 Uhr</time>
-            <h4>Stray Colors</h4>
-            <p>
-              Ein kunterbuntes Leuchtfeuer aus Balkan, Folk und Indie. Dazu der
-              zweistimme Gesang von Rüdiger Sinn und Zlatko Pasalic.
-            </p>
-            <h4>Orientacion</h4>
-            <p>
-              Die Musik der drei Welt-Musiker Ehab Abou Fakher (Viola), Roman
-              Bunka (Oud) und Luis Borda (Gitarre) ist geprägt durch
-              argentinischen Tango und arabischen Taqsims, den
-              Klang-Konstruktionen Neuer Musik und der Liebe zu Rhythmus und
-              Improvisation.
-            </p>
-            <a
-              className="learnMore"
-              href="https://bosco-gauting.de/veranstaltungen/gautinglive-stray-colors"
-              target="_blank"
-            >
-              &#8594;&nbsp;Mehr zu dieser Veranstaltung
-            </a>
-            <Video id="qXDjDaNriXQ" service="youtube" />
-          </li>
-        </ul>
+function Card(props: {
+  index: number;
+  season: number;
+  episode: number;
+  youtube: string;
+  thumbnail: string;
+  time: string;
+  children: any;
+}) {
+  return (
+    <Slide index={props.index} classNameHidden="hiddenCard">
+      <div className="card">
+        <Video
+          id={props.youtube}
+          service="youtube"
+          thumbnail={props.thumbnail}
+        />
+        <div className="cardContent">
+          <time>{props.time}</time>
+          <div>
+            <span className="seasonLabel">Staffel {props.season}</span>
+            <span className="episodeLabel">Episode {props.episode}</span>
+          </div>
+          {props.children}
+        </div>
       </div>
-    </div>
+    </Slide>
   );
 }

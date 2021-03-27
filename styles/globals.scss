@@ -586,6 +586,65 @@ li {
 }
 
 .schedule {
+  z-index: 2;
+  position: relative;
+  padding-left: 80px;
+  padding-right: 80px;
+  padding-bottom: 80px;
+
+  @media only screen and (max-width: 767px) {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .card {
+    margin: 15px;
+    text-align: left;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0 0.9px 2.2px rgba(0, 0, 0, 0.02),
+      0 2.2px 5.3px rgba(0, 0, 0, 0.028), 0 4.1px 10px rgba(0, 0, 0, 0.035),
+      0 7.4px 17.9px rgba(0, 0, 0, 0.042), 0 13.8px 33.4px rgba(0, 0, 0, 0.05),
+      0 33px 80px rgba(0, 0, 0, 0.07);
+
+    @media only screen and (max-width: 767px) {
+      margin: 10px;
+    }
+
+    .cardContent {
+      padding: 15px;
+      cursor: grab;
+
+      &:active {
+        cursor: grabbing;
+      }
+
+      time {
+        color: #969fb6;
+        font-size: 0.9em;
+      }
+
+      .seasonLabel {
+        font-size: 0.8em;
+        margin-top: 5px;
+      }
+
+      .episodeLabel {
+        margin-left: 8px;
+        font-size: 0.9em;
+        font-weight: 600;
+      }
+
+      h4 {
+        margin-top: 12px;
+      }
+
+      p {
+        margin: 0;
+      }
+    }
+  }
+  /*
   display: flex;
   @media only screen and (max-width: 767px) {
     flex-direction: column;
@@ -639,6 +698,7 @@ li {
   .video {
     margin-bottom: 20px;
   }
+  */
 }
 
 .reminder {
@@ -757,10 +817,14 @@ li {
   width: 100%;
   padding-top: 56.25%;
   position: relative;
-  border-radius: 15px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
   background-color: black;
 
   .videoInner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
     top: 0;
     left: 0;
@@ -780,23 +844,55 @@ li {
       border-radius: 5px;
     }
   }
+
+  .clickableArea {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    color: white;
+    overflow: hidden;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+
+    .thumbnail {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+
+    .play {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      @media only screen and (max-width: 767px) {
+        margin-top: -10px;
+      }
+    }
+  }
 }
 
-.season-two {
+.seasonLabel {
   font-family: "Barlow";
+  font-weight: 600;
   color: white;
   background-color: #2f333f;
-  font-size: 16px;
-  padding: 8px 14px 9px;
+  font-size: 1em;
+  padding: 0.5em 0.8em;
   display: inline-block;
   text-transform: uppercase;
   border-radius: 5px;
-  position: relative;
-  top: 50px;
 
-  @media only screen and (max-width: 767px) {
-    top: 5px;
-    margin-top: 20px;
+  &.seasonTitle {
+    position: relative;
+    top: 50px;
+    @media only screen and (max-width: 767px) {
+      top: 5px;
+      margin-top: 20px;
+    }
   }
 }
 
@@ -840,136 +936,118 @@ li {
   .video {
     margin-bottom: 10px;
     margin-top: 20px;
+    border-radius: 15px;
 
     @media only screen and (max-width: 767px) {
       margin-top: 0px;
     }
 
-    .videoInner {
+    .backgroundVid {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      filter: blur(20px) saturate(200%);
+      border-radius: 15px;
+    }
+
+    .liveBadge {
+      font-weight: bold;
+      text-transform: uppercase;
+      background: #ea0000;
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 5px;
+
+      position: absolute;
+      top: 15px;
+      left: 15px;
+
+      animation-direction: alternate;
+      animation-duration: 0.7s;
+      animation-iteration-count: infinite;
+      animation-name: fadeRed;
+      animation-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
+    }
+
+    iframe {
+      border-radius: 15px;
+    }
+
+    .clickableArea {
+      border-radius: 15px;
+    }
+
+    @keyframes fadeRed {
+      from {
+        opacity: 0.7;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .liveTitle {
+      max-width: none;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      text-align: left;
+      font-weight: normal;
+      margin-left: 10px;
+      position: absolute;
+      bottom: 15px;
+      left: 15px;
+      right: 15px;
+      text-align: center;
+    }
+
+    .info {
+      text-align: center;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
 
-      .info {
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+      h3 {
+        font-family: "Barlow";
+        margin-bottom: 0.6em;
+        margin-top: 1.5em;
+        padding-left: 20px;
+        padding-right: 20px;
 
-        h3 {
-          font-family: "Barlow";
-          margin-bottom: 0.6em;
-          margin-top: 1.5em;
-          padding-left: 20px;
-          padding-right: 20px;
-
-          @media only screen and (max-width: 767px) {
-            margin-top: 1em;
-          }
-          @media only screen and (max-width: 340px) {
-            font-size: 1em;
-          }
+        @media only screen and (max-width: 767px) {
+          margin-top: 1em;
         }
-
-        p {
-          margin-top: 0;
-          max-width: 60%;
-          opacity: 0.7;
-          white-space: pre-line;
-          @media only screen and (max-width: 767px) {
-            display: none;
-          }
-        }
-
-        .countdown {
-          margin-left: auto;
-          margin-right: auto;
-
-          @media only screen and (max-width: 340px) {
-            font-size: 0.7em;
-          }
-          & > div {
-            text-align: center;
-          }
+        @media only screen and (max-width: 340px) {
+          font-size: 1em;
         }
       }
 
-      iframe {
-        border-radius: 15px;
+      p {
+        margin-top: 0;
+        max-width: 60%;
+        opacity: 0.7;
+        white-space: pre-line;
+        @media only screen and (max-width: 767px) {
+          display: none;
+        }
       }
 
-      .openExternal {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        color: white;
-        overflow: hidden;
-        border-radius: 15px;
+      .countdown {
+        margin-left: auto;
+        margin-right: auto;
 
-        .backgroundVid {
-          object-fit: cover;
-          width: 100%;
-          height: 100%;
-          filter: blur(20px) saturate(200%);
-          border-radius: 15px;
+        @media only screen and (max-width: 340px) {
+          font-size: 0.7em;
         }
-
-        .liveBadge {
-          font-weight: bold;
-          text-transform: uppercase;
-          background: #ea0000;
-          display: inline-block;
-          padding: 3px 10px;
-          border-radius: 5px;
-
-          position: absolute;
-          top: 15px;
-          left: 15px;
-
-          animation-direction: alternate;
-          animation-duration: 0.7s;
-          animation-iteration-count: infinite;
-          animation-name: fadeRed;
-          animation-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
-        }
-
-        @keyframes fadeRed {
-          from {
-            opacity: 0.7;
-          }
-          to {
-            opacity: 1;
-          }
-        }
-
-        .liveTitle {
-          max-width: none;
-          text-overflow: ellipsis;
-          overflow: hidden;
-          white-space: nowrap;
-          text-align: left;
-          font-weight: normal;
-          margin-left: 10px;
-          position: absolute;
-          bottom: 15px;
-          left: 15px;
-          right: 15px;
+        & > div {
           text-align: center;
         }
-
-        .play {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          @media only screen and (max-width: 767px) {
-            margin-top: -10px;
-          }
-        }
       }
+    }
+
+    iframe {
+      border-radius: 15px;
     }
   }
 }
