@@ -108,9 +108,9 @@ export default function Home(props: Props) {
             <p>
               Die Pandemie scheint uns noch etwas weiter zu begleiten. Deshalb
               haben wir beschlossen auch mit gauting.live in eine zweite Staffel
-              zu gehen. Aktuell haben wir schon zwei Konzerte für den 16. und
-              24.&nbsp;April bestätigt. Wer auftreten wird, werden wir in Kürze
-              verraten.
+              zu gehen. Aktuell haben wir schon zwei Veranstaltungen für den 16.
+              und 24.&nbsp;April bestätigt. Wer auftreten wird, werden wir in
+              Kürze verraten.
             </p>
             <p>
               Für die zweite Staffel haben wir auch unseren Spendenbalken
