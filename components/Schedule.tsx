@@ -106,7 +106,7 @@ export default function Schedule() {
           index={2}
           season={1}
           episode={3}
-          youtube="n7E2LW9r_Is"
+          youtube="fnpg7DILlDo"
           time="Freitag, 26. Februar, 20:00 Uhr"
         >
           <h4>Faltsch Wagoni</h4>
