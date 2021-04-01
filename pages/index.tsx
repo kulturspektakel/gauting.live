@@ -65,7 +65,7 @@ export default function Home(props: Props) {
             <img src="/video-game-logo-stream.svg" width="40" />
             <br />
             Die Veranstaltungen werden per Livestream aus dem bosco übertragen
-            werden und anschließend als Aufzeichnung angeboten werden.
+            werden und anschließend als Aufzeichnung angeboten.
           </div>
 
           <div>
@@ -171,9 +171,6 @@ export default function Home(props: Props) {
             <div className="row">
               <a target="_blank" href="https://sigma-event.de">
                 <img src="/sigma.svg" alt="Sigma Veranstaltungstechnik" />
-              </a>
-              <a target="_blank" href="https://camposviola.photography">
-                <img src="/campos-viola.svg" alt="Campos Viola Photography" />
               </a>
               <a target="_blank" href="http://theaterforum.de">
                 <img src="/theaterforum.svg" alt="Theaterforum Gauting" />
