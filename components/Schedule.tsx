@@ -78,7 +78,7 @@ export default function Schedule() {
             <a
               className="learnMore"
               target="_blank"
-              href="https://bosco-gauting.de/veranstaltungen/spiellust-3-auffüuhrung-des-3.-Theaterjugendclubs%20Gauting"
+              href="https://bosco-gauting.de/veranstaltungen/gautinglive-dr-will-and-the-wizards"
             >
               &rarr; mehr zur Veranstaltung
             </a>
