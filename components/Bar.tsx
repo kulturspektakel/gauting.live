@@ -1,6 +1,7 @@
 import { useInView } from "react-intersection-observer";
 import { useEffect, useState } from "react";
 import formatCurrency from "../utils/formatCurrency";
+import SeasonBadge from "./SeasonBadge";
 
 export default function Bar(props: {
   totalAmount: number;
@@ -20,7 +21,9 @@ export default function Bar(props: {
   return (
     <main className="current bgcolor">
       <div className="container">
-        <h3 className="seasonLabel seasonTitle">Staffel 2</h3>
+        <h3 className="seasonTitle">
+          <SeasonBadge season={2} />
+        </h3>
         <h2>
           <strong>{formatCurrency(props.totalAmount)}</strong> von{" "}
           {props.donationsCount}&nbsp;Spender*innen

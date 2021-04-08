@@ -641,6 +641,11 @@ li {
 
       p {
         margin: 0;
+        margin-top: 4px;
+      }
+
+      P + p {
+        margin-top: 10px;
       }
     }
   }
@@ -739,6 +744,8 @@ li {
     border-top-left-radius: 0px;
     font-weight: bold;
     cursor: pointer;
+    color: #2f333f;
+
     @media only screen and (max-width: 767px) {
       font-size: 0.9em;
     }
@@ -847,7 +854,6 @@ li {
 
   .clickableArea {
     position: absolute;
-    cursor: pointer;
     top: 0;
     left: 0;
     right: 0;
@@ -856,6 +862,10 @@ li {
     overflow: hidden;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
+
+    &a {
+      cursor: pointer;
+    }
 
     .thumbnail {
       object-fit: cover;
@@ -875,24 +885,31 @@ li {
   }
 }
 
+.seasonTitle {
+  position: relative;
+  top: 40px;
+  @media only screen and (max-width: 767px) {
+    top: 5px;
+    margin-top: 20px;
+  }
+}
+
 .seasonLabel {
   font-family: "Barlow";
   font-weight: 600;
-  color: white;
   background-color: #2f333f;
-  font-size: 1em;
-  padding: 0.5em 0.8em;
+  padding: 0.4em 0.7em 0.45em;
   display: inline-block;
   text-transform: uppercase;
-  border-radius: 5px;
+  border-radius: 0.3em;
 
-  &.seasonTitle {
-    position: relative;
-    top: 50px;
-    @media only screen and (max-width: 767px) {
-      top: 5px;
-      margin-top: 20px;
-    }
+  &.season1 {
+    color: white;
+    background-color: #969fb6;
+  }
+  &.season2 {
+    color: white;
+    background-color: #2f333f;
   }
 }
 

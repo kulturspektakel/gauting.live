@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import Video from "./Video";
 import { CarouselProvider, Slider, Slide } from "pure-react-carousel";
 import "pure-react-carousel/dist/react-carousel.es.css";
+import SeasonBadge from "./SeasonBadge";
 import { useWindowWidth } from "@react-hook/window-size";
 
 export default function Schedule() {
@@ -32,10 +33,57 @@ export default function Schedule() {
     <CarouselProvider
       naturalSlideWidth={width}
       naturalSlideHeight={height}
-      totalSlides={6}
+      totalSlides={8}
       visibleSlides={visibleSlides}
     >
       <Slider className="schedule">
+        <Card
+          thumbnail="/s2e2.jpg"
+          index={6}
+          season={2}
+          episode={2}
+          time="Freitag, 24. April, 19:00 Uhr"
+        >
+          <h4>SpielLust #3: Aufführung des 3. Theaterjugendclubs Gauting</h4>
+          <p>
+            Unter Leitung von Sebastian Hofmüller, Yvonne Kalles und Tobias
+            Weber bringen die Teil&shy;nehmer*innen des 3.&nbsp;Gautinger
+            Theaterjugendclubs ihre eigene Theaterproduktion zur Aufführung.
+          </p>
+          <p>
+            <a
+              className="learnMore"
+              target="_blank"
+              href="https://bosco-gauting.de/veranstaltungen/spiellust-3-auffüuhrung-des-3.-Theaterjugendclubs%20Gauting"
+            >
+              &rarr; mehr zur Veranstaltung
+            </a>
+          </p>
+        </Card>
+        <Card
+          thumbnail="/s2e1.jpg"
+          index={6}
+          season={2}
+          episode={1}
+          time="Freitag, 16. April, 20:00 Uhr"
+        >
+          <h4>Dr. Will &amp; The Wizards</h4>
+          <p>
+            Der stimmgewaltige Dr. Will im roten Anzug samt Zylinder ist einer
+            der großartigsten Blueser und Entertainer. Wuchtiger
+            Kontra&shy;bass, schwirrendes Banjo-Picking, magische Gitarren und
+            Dr. Will selbst am stampfenden Stand&shy;schlagzeug.
+          </p>
+          <p>
+            <a
+              className="learnMore"
+              target="_blank"
+              href="https://bosco-gauting.de/veranstaltungen/spiellust-3-auffüuhrung-des-3.-Theaterjugendclubs%20Gauting"
+            >
+              &rarr; mehr zur Veranstaltung
+            </a>
+          </p>
+        </Card>
         <Card
           thumbnail="/s1e6.jpg"
           index={5}
@@ -125,7 +173,6 @@ export default function Schedule() {
           index={1}
           season={1}
           episode={2}
-          youtube="WE31T0qZ-i0"
           time="Samstag, 13. Februar, 16:00 Uhr"
         >
           <h4>Greulmüllersche HörspielManufaktur</h4>
@@ -162,7 +209,7 @@ function Card(props: {
   index: number;
   season: number;
   episode: number;
-  youtube: string;
+  youtube?: string;
   thumbnail: string;
   time: string;
   children: any;
@@ -178,7 +225,7 @@ function Card(props: {
         <div className="cardContent">
           <time>{props.time}</time>
           <div>
-            <span className="seasonLabel">Staffel {props.season}</span>
+            <SeasonBadge season={props.season} />
             <span className="episodeLabel">Episode {props.episode}</span>
           </div>
           {props.children}

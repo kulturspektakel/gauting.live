@@ -3,14 +3,14 @@ import { useEffect, useState } from "react";
 export default function Video(
   props:
     | {
-        id: string;
+        id?: string;
         page: string;
         autoPlay?: boolean;
         service: "facebook";
         thumbnail?: string;
       }
     | {
-        id: string;
+        id?: string;
         autoPlay?: boolean;
         service: "youtube";
         openExternal?: boolean;
@@ -27,7 +27,13 @@ export default function Video(
   const autoPlay = playVideo || props.autoPlay;
   let content = null;
 
-  if (props.thumbnail && !playVideo) {
+  if (props.thumbnail && !props.id) {
+    content = (
+      <span className="clickableArea">
+        <img src={props.thumbnail} className="thumbnail" />
+      </span>
+    );
+  } else if (props.thumbnail && !playVideo) {
     content = (
       <a
         className="clickableArea"
