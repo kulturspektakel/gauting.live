@@ -2,7 +2,7 @@ import Head from "next/head";
 import React from "react";
 import Page from "../components/Page";
 
-export default function Impressum(props: {}) {
+export default function Spenden() {
   return (
     <Page>
       <Head>
@@ -31,7 +31,7 @@ export default function Impressum(props: {}) {
             <td>
               <h4>Gagen für Künstler*innen</h4>
               Unsere Künstler*innen sind alle weit unter ihren üblichen Gagen
-              aufgetreten, trotzdem war es Ziel des Projekts die Künsterinnen
+              aufgetreten, trotzdem war es Ziel des Projekts die Künster*innen
               während der Pandemie zu unterstützen.
             </td>
             <td className="negative">-11.735,40&nbsp;&euro;</td>
@@ -39,7 +39,7 @@ export default function Impressum(props: {}) {
           <tr>
             <td>
               <h4>Gebühren</h4>
-              Für die Abwicklung der Spenden über betterplace werden 2.5% für
+              Für Spenden über betterplace werden 2,5% des Spendenbetrags für
               die Zahlungsabwicklung{" "}
               <a
                 href="https://www.betterplace.org/c/hilfe/wann-fallen-transaktionskosten-an"
@@ -63,8 +63,8 @@ export default function Impressum(props: {}) {
           <tr>
             <td>
               <h4>Mietkosten für Equipment</h4>
-              Kameras, Videoschnitttechnik, Mischpulte, Beleuchtung und mehr für
-              das wir zu einem Freundschaftspreis leihen konnten.
+              Kameras, Videoschnitttechnik, Mischpulte, Beleuchtung und mehr das
+              wir zu einem Freundschaftspreis leihen konnten.
             </td>
             <td className="negative">-4.082,72&nbsp;&euro;</td>
           </tr>
