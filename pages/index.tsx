@@ -91,16 +91,16 @@ export default function Home(props: Props) {
               Ziel erreicht
             </div> */}
             <p>
-              Insgesamt sind {formatCurrency(2570400)} an Spenden für das
+              Insgesamt sind {formatCurrency(2620400)} an Spenden für das
               Projekt zusammen gekommen. Damit konnten wir unsere sechs
               Ver&shy;anstal&shy;tungen der ersten Staffel mit insgesamt elf
               Live-Acts auf die Beine stellen.
             </p>
             <p>
-              Neben den Künstler*innen konnten wir damit auch dem 10-köpfigen
-              Event-Produktionsteam, das wie auch die Künstler*innen von der
-              Pandemie betroffen ist, etwas mehr als eine symbolische
-              Aufwands&shy;entschädigung für Equipment und Arbeitszeit zahlen.
+              Dank eurer Spenden konnten wir unsere Künstler*innen und
+              Techniker*innen in Zeiten der Pandemie unterstützen. Mehr
+              Informationen zur Verwendung der Spendengelder könnt ihr auf
+              unserer <Link href="/spenden">Übersichts&shy;seite</Link> finden.
             </p>
           </div>
           <div className="goal">
