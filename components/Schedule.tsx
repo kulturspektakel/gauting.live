@@ -74,6 +74,14 @@ export default function Schedule() {
             Kontra&shy;bass, schwirrendes Banjo-Picking, magische Gitarren und
             Dr. Will selbst am stampfenden Stand&shy;schlagzeug.
           </p>
+          <h4>Synergy</h4>
+          <p>
+            Saxofonist Michael Hornstein und der Pianist Oliver Hahn jenseits
+            aller Genregrenze ein erprobtes Team. Für ihr neues Programm haben
+            die Jazz-Musiker neue Spielmodelle entwickelt, die erst im Moment
+            der Aufführung konkrete Form annehmen und trotz intuitiver
+            Herangehensweise einer klaren Dramaturgie folgen.
+          </p>
           <p>
             <a
               className="learnMore"
