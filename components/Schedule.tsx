@@ -42,7 +42,7 @@ export default function Schedule() {
           index={6}
           season={2}
           episode={2}
-          time="Freitag, 24. April, 19:00 Uhr"
+          time="Samstag, 24. April, 19:00 Uhr"
         >
           <h4>SpielLust #3: Aufführung des 3. Theaterjugendclubs Gauting</h4>
           <p>
