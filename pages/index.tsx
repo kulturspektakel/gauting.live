@@ -65,7 +65,7 @@ export default function Home(props: Props) {
             <img src="/video-game-logo-stream.svg" width="40" />
             <br />
             Die Veranstaltungen werden per Livestream aus dem bosco übertragen
-            werden und anschließend als Aufzeichnung angeboten.
+            und anschließend als Aufzeichnung angeboten.
           </div>
 
           <div>

@@ -51,6 +51,12 @@ export default function Schedule() {
             Theaterjugendclubs ihre eigene Theaterproduktion zur Aufführung.
           </p>
           <p>
+            Aufgeführt wird &bdquo;Weltuntergang&rdquo; &mdash; oder &bdquo;Die
+            Jugend muss mal wieder als Hoffnungsträger für die verkorkste
+            Menschheit herhalten&rdquo;, ein Distanz-Theaterstück von Jura
+            Soyfer.
+          </p>
+          <p>
             <a
               className="learnMore"
               target="_blank"
