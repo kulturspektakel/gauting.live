@@ -72,6 +72,7 @@ export default function Schedule() {
           season={2}
           episode={1}
           time="Freitag, 16. April, 20:00 Uhr"
+          youtube="pnpbbj0vQPU"
         >
           <h4>Dr. Will &amp; The Wizards</h4>
           <p>
