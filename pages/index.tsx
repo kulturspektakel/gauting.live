@@ -180,6 +180,9 @@ export default function Home(props: Props) {
               <a target="_blank" href="https://acoustic-service.de/">
                 <img src="/acousticservice.svg" alt="Acoustic Service" />
               </a>
+              <a target="_blank" href="https://www.gmd-soundtrax.de">
+                <img src="/gmd-soundtrax.svg" alt="GMD Soundtrax" />
+              </a>
             </div>
           </div>
         </section>
