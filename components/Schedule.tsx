@@ -33,13 +33,72 @@ export default function Schedule() {
     <CarouselProvider
       naturalSlideWidth={width}
       naturalSlideHeight={height}
-      totalSlides={8}
+      totalSlides={10}
       visibleSlides={visibleSlides}
     >
       <Slider className="schedule">
         <Card
+          thumbnail="/s2e4.jpg"
+          index={9}
+          season={2}
+          episode={4}
+          time="Freitag, 14. Mai, 20:00 Uhr"
+        >
+          <h4>Embryo &amp; Joel Frederiksen</h4>
+          <p>
+            Seit 52 Jahren lässt sich Embryo nicht von Genregrenzen aufhalten,
+            mischt Jazz, Weltmusik, Rock, Psychedelisches und vieles mehr. 2015
+            übernahm die Marja Burchard, Tochter des Mitbegründers Christian
+            Burchard, die Leitung der Band und führte sie auf neues Terrain.
+          </p>
+          <p>
+            Der Bassist und Lautenist Joel Frederiksen tritt mit führenden
+            Persönlichkeiten der Alten Musik auf und befasst sich mit
+            englischen, italienischen, französischen und deutschen Repertoires
+            aus der Renaissance und des Barocks.
+          </p>
+          <p>
+            <a
+              className="learnMore"
+              target="_blank"
+              href="https://bosco-gauting.de/veranstaltungen/gautinglive-embryo-joel-frederiksen"
+            >
+              &rarr; mehr zur Veranstaltung
+            </a>
+          </p>
+        </Card>
+        <Card
+          thumbnail="/s2e3.jpg"
+          index={8}
+          season={2}
+          episode={3}
+          time="Freitag, 30. April, 20:00 Uhr"
+        >
+          <h4>The Ukelites &amp; Kilian Kemmer Trio</h4>
+          <p>
+            Was als kleines Duo für Wohnzimmerkonzerte angefangen hatte – mit
+            Miriam Hein als Sängerin an der Ukulele sowie Steffen Günter, der
+            mit seinem kleinen Ukulelen-Bass, hat sich in der Live-Besetzung
+            Quartett mit Hawaiian Steel Guitar und Schlagzeug ausgeweitet.
+          </p>
+          <p>
+            Nietzsches Idee der „ewigen Wiederkunft“ inspirierte den Pianisten
+            Kilian Kemmer. Mit Benjamin Schäfer (Bass) und Matthias Gmelin
+            (Drums) spielt das Trio Jazz zum Runterkommen und Genießen.
+          </p>
+          <p>
+            <a
+              className="learnMore"
+              target="_blank"
+              href="https://bosco-gauting.de/veranstaltungen/gautinglive-the-ukelites-kilian-kemmer-trio"
+            >
+              &rarr; mehr zur Veranstaltung
+            </a>
+          </p>
+        </Card>
+        <Card
           thumbnail="/s2e2.jpg"
-          index={6}
+          index={7}
           season={2}
           episode={2}
           time="Samstag, 24. April, 19:00 Uhr"

@@ -33,7 +33,7 @@ export async function fetchBetterplaceData() {
 
   return {
     ...project,
-    goals: [100000, 200000, 300000],
+    goals: [300000, 600000, 900000, 1200000],
     opinions,
   };
 }
