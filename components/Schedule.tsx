@@ -102,6 +102,7 @@ export default function Schedule() {
           season={2}
           episode={2}
           time="Samstag, 24. April, 19:00 Uhr"
+          youtube="Bo6_omEbr8M"
         >
           <h4>SpielLust #3: Aufführung des 3. Theaterjugendclubs Gauting</h4>
           <p>
