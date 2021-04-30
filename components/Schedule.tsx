@@ -44,13 +44,14 @@ export default function Schedule() {
           episode={4}
           time="Freitag, 14. Mai, 20:00 Uhr"
         >
-          <h4>Embryo &amp; Joel Frederiksen</h4>
+          <h4>Embryo</h4>
           <p>
             Seit 52 Jahren lässt sich Embryo nicht von Genregrenzen aufhalten,
             mischt Jazz, Weltmusik, Rock, Psychedelisches und vieles mehr. 2015
             übernahm die Marja Burchard, Tochter des Mitbegründers Christian
             Burchard, die Leitung der Band und führte sie auf neues Terrain.
           </p>
+          <h4>Joel Frederiksen Duo</h4>
           <p>
             Der Bassist und Lautenist Joel Frederiksen tritt mit führenden
             Persönlichkeiten der Alten Musik auf und befasst sich mit
@@ -73,14 +74,16 @@ export default function Schedule() {
           season={2}
           episode={3}
           time="Freitag, 30. April, 20:00 Uhr"
+          youtube="TSCn3xTCxJg"
         >
-          <h4>The Ukelites &amp; Kilian Kemmer Trio</h4>
+          <h4>The Ukelites</h4>
           <p>
             Was als kleines Duo für Wohnzimmerkonzerte angefangen hatte – mit
             Miriam Hein als Sängerin an der Ukulele sowie Steffen Günter, der
             mit seinem kleinen Ukulelen-Bass, hat sich in der Live-Besetzung
             Quartett mit Hawaiian Steel Guitar und Schlagzeug ausgeweitet.
           </p>
+          <h4>Kilian Kemmer Trio</h4>
           <p>
             Nietzsches Idee der „ewigen Wiederkunft“ inspirierte den Pianisten
             Kilian Kemmer. Mit Benjamin Schäfer (Bass) und Matthias Gmelin
