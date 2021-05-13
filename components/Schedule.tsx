@@ -44,19 +44,19 @@ export default function Schedule() {
           episode={4}
           time="Freitag, 14. Mai, 20:00 Uhr"
         >
+          <h4>Joel Frederiksen &amp; Domen Marinčič</h4>
+          <p>
+            Joel Frederiksen (Bass, Laute, Erzlaute) und Domen Marinčič (Viola
+            da Gamba) spielen in ihrem Programm "Orpheus, I am" Werke aus
+            Renaissance und Frühbarock, aktuelle Eigenkompositionen von Joel
+            Frederiksen und neue Arrangements von Leonard-Cohen-Songs.
+          </p>
           <h4>Embryo</h4>
           <p>
             Seit 52 Jahren lässt sich Embryo nicht von Genregrenzen aufhalten,
             mischt Jazz, Weltmusik, Rock, Psychedelisches und vieles mehr. 2015
             übernahm die Marja Burchard, Tochter des Mitbegründers Christian
             Burchard, die Leitung der Band und führte sie auf neues Terrain.
-          </p>
-          <h4>Joel Frederiksen Duo</h4>
-          <p>
-            Der Bassist und Lautenist Joel Frederiksen tritt mit führenden
-            Persönlichkeiten der Alten Musik auf und befasst sich mit
-            englischen, italienischen, französischen und deutschen Repertoires
-            aus der Renaissance und des Barocks.
           </p>
           <p>
             <a
