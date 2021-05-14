@@ -10,9 +10,8 @@ type Props = {
 export default function Reminder(props: Props) {
   const [tel, setTel] = useState("");
   const [set, setSet] = useState(false);
-  const { data: nextEvent } = useSWR<Await<ReturnType<typeof fetchNextEvent>>>(
-    "/api/nextEvent"
-  );
+  const { data: nextEvent } =
+    useSWR<Await<ReturnType<typeof fetchNextEvent>>>("/api/nextEvent");
 
   useEffect(() => {
     setSet(Boolean(localStorage.getItem("reminder")));

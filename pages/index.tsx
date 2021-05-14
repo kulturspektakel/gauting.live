@@ -126,7 +126,14 @@ export default function Home(props: Props) {
         <div className="container">
           <div className="inner">
             <h2>Livestream</h2>
-            <Reminder isDark />
+            <p>
+              Nach zehn Episoden ist gauting.live jetzt zu Ende und hoffentlich
+              kann es bald mit Live-Konzerten weitergehen.
+            </p>
+            <p>
+              Aber falls ihr ein Konzert verpasst hat oder nochmal anschauen
+              wollt, stehen hier die Aufzeichnungen für euch bereit.
+            </p>
           </div>
         </div>
       </main>
