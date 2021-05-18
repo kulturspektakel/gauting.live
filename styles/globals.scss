@@ -129,6 +129,10 @@ li {
   padding-top: 100px;
   padding-bottom: 80px;
 
+  @media only screen and (max-width: 767px) {
+    padding-top: 40px;
+  }
+
   p a,
   .learnMore {
     border-bottom: 1px solid transparent;
@@ -147,7 +151,10 @@ li {
   background: white;
   border-bottom: 1px solid #eaeaea;
   z-index: 4;
-  transition: 0.4s all;
+
+  @media only screen and (max-width: 767px) {
+    position: static;
+  }
 
   &.eventMode {
     background: #2f343e;
@@ -162,7 +169,6 @@ li {
     padding-bottom: 15px;
 
     @media only screen and (max-width: 767px) {
-      padding-top: 10px;
       padding-bottom: 6px;
     }
   }
@@ -227,7 +233,12 @@ li {
 
   h2 {
     max-width: none;
-    margin-bottom: 30px;
+    margin-bottom: 0px;
+
+    @media only screen and (max-width: 767px) {
+      margin-top: 30px;
+      margin-bottom: -20px;
+    }
   }
 }
 
@@ -591,14 +602,16 @@ li {
   padding-left: 80px;
   padding-right: 80px;
   padding-bottom: 80px;
+  display: flex;
 
   @media only screen and (max-width: 767px) {
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
 
   .card {
     margin: 15px;
+    margin-bottom: 30px;
     text-align: left;
     border-radius: 5px;
     background-color: white;
@@ -609,15 +622,11 @@ li {
 
     @media only screen and (max-width: 767px) {
       margin: 10px;
+      margin-bottom: 20px;
     }
 
     .cardContent {
       padding: 15px;
-      cursor: grab;
-
-      &:active {
-        cursor: grabbing;
-      }
 
       time {
         color: #969fb6;

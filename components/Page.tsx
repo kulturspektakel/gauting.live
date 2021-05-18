@@ -85,10 +85,6 @@ export default function Page({ dark, children }: Props) {
               </svg>
             </a>
           </Link>
-
-          <div>
-            <DonateNow />
-          </div>
         </div>
       </header>
       <main className="main">{children}</main>

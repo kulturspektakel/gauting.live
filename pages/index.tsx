@@ -1,47 +1,13 @@
-import { GetServerSideProps } from "next";
-import Bar from "../components/Bar";
-import { BetterplaceData, fetchBetterplaceData } from "../utils/betterplace";
-import DonateNow from "../components/Donate";
 import DonationList from "../components/DonationList";
 import React from "react";
 import Link from "next/link";
 import Page from "../components/Page";
-import Reminder from "../components/Reminder";
 import Schedule from "../components/Schedule";
-import Live from "../components/Live";
-import { useInView } from "react-intersection-observer";
-import { fetchLive } from "./api/live";
-import useSWR from "swr";
 import formatCurrency from "../utils/formatCurrency";
 
-type Props = BetterplaceData & {
-  liveVideo: Await<ReturnType<typeof fetchLive>>;
-  fbCapableBrowser: boolean;
-};
-
-export default function Home(props: Props) {
-  const { ref, inView } = useInView({
-    initialInView: true,
-  });
-
-  const { data: liveVideo } = useSWR<Await<ReturnType<typeof fetchLive>>>(
-    "/api/live",
-    {
-      refreshInterval: 10000,
-      initialData: props.liveVideo ?? undefined,
-    }
-  );
-  const hasVideo = Boolean(liveVideo?.data);
-
+export default function Home() {
   return (
-    <Page dark={hasVideo && inView}>
-      {hasVideo && liveVideo?.data && (
-        <Live
-          liveVideo={liveVideo?.data}
-          ref={ref}
-          fbCapableBrowser={props.fbCapableBrowser}
-        />
-      )}
+    <Page>
       <div className="container">
         <h1>
           Kultur in der Krise <strong>unterstützen</strong>
@@ -76,25 +42,25 @@ export default function Home(props: Props) {
           </div>
         </div>
       </div>
-
-      <Bar
-        totalAmount={props.totalAmount}
-        goals={props.goals}
-        donationsCount={props.donationsCount}
-      />
+      <main className="current bgcolor">
+        <div className="container">
+          <h2>
+            <strong>{formatCurrency(3315700)}</strong> von
+            742&nbsp;Spender*innen
+          </h2>
+        </div>
+      </main>
       <main>
         <div className="container goals">
           <div className="goal">
             <h3>Vielen Dank!</h3>
-            {/* <div className="achieved">
-              <img src="/check-badge.svg" />
-              Ziel erreicht
-            </div> */}
+
             <p>
-              Insgesamt sind {formatCurrency(2620400)} an Spenden für das
-              Projekt zusammen gekommen. Damit konnten wir unsere sechs
-              Ver&shy;anstal&shy;tungen der ersten Staffel mit insgesamt elf
-              Live-Acts auf die Beine stellen.
+              Insgesamt sind {formatCurrency(2620400)} in der ersten Staffel und{" "}
+              {formatCurrency(695300)} in der zweiten Staffel für das Projekt
+              gespendet worden gekommen. Damit konnten wir unsere zehn
+              Ver&shy;anstal&shy;tungen mit insgesamt 18&nbsp; Live-Acts auf die
+              Beine stellen.
             </p>
             <p>
               Dank eurer Spenden konnten wir unsere Künstler*innen und
@@ -104,34 +70,30 @@ export default function Home(props: Props) {
             </p>
           </div>
           <div className="goal">
-            <h3>Wir gehen in die 2. Staffel</h3>
+            <h3>Über 15.000 Zuschauer*innen</h3>
             <p>
-              Die Pandemie scheint uns noch etwas weiter zu begleiten. Deshalb
-              haben wir beschlossen auch mit gauting.live in eine zweite Staffel
-              zu gehen. Aktuell haben wir schon zwei Veranstaltungen für den 16.
-              und 24.&nbsp;April bestätigt.
+              Unsere Livestreams und Aufzeichnungen auf Facebook, YouTube und
+              Instagram haben insgesamt mehr als 15.000&nbsp;Personen erreicht.
+              Mehr als wir je gedacht hätten.
             </p>
             <p>
-              Für die zweite Staffel haben wir auch unseren Spendenbalken
-              zurückgesetzt. Die Spenden der ersten Staffel sind ausgezahlt und
-              wir sammeln nun für die Künstler*innen der zweiten Staffel.
+              Die Umsetzung des Projekts wurde von unserer 30-köpfigen Crew aus
+              Kameraleuten, Veran&shy;staltungs&shy;techniker*innen und vielen
+              weiteren gestemmt.
             </p>
           </div>
         </div>
       </main>
-      <div className="container">
-        <DonateNow />
-      </div>
       <main className="live">
         <div className="container">
           <div className="inner">
-            <h2>Livestream</h2>
+            <h2>2&nbsp;Staffeln, 10&nbsp;Episoden</h2>
             <p>
               Nach zehn Episoden ist gauting.live jetzt zu Ende und hoffentlich
               kann es bald mit Live-Konzerten weitergehen.
             </p>
             <p>
-              Aber falls ihr ein Konzert verpasst hat oder nochmal anschauen
+              Aber falls ihr ein Konzert verpasst habt oder nochmal anschauen
               wollt, stehen hier die Aufzeichnungen für euch bereit.
             </p>
           </div>
@@ -150,7 +112,7 @@ export default function Home(props: Props) {
             ).
           </p>
 
-          <DonationList initialOpinions={props.opinions} />
+          <DonationList />
         </div>
 
         <section className="section">
@@ -197,28 +159,3 @@ export default function Home(props: Props) {
     </Page>
   );
 }
-
-export const getServerSideProps: GetServerSideProps<Props> = async ({
-  req,
-}) => {
-  const [betterplaceData, liveVideo] = await Promise.all([
-    fetchBetterplaceData(),
-    fetchLive(),
-  ]);
-
-  const desktopChrome =
-    (req.headers["sec-ch-ua"]?.indexOf("Google Chrome") ?? "") > -1 &&
-    req.headers["sec-ch-ua-mobile"] === "?0";
-
-  const mobileSafari = /Version\/([0-9\._]+).*Mobile.*Safari.*/.test(
-    String(req.headers["user-agent"])
-  );
-
-  return {
-    props: {
-      ...betterplaceData,
-      liveVideo,
-      fbCapableBrowser: desktopChrome || mobileSafari,
-    },
-  };
-};
