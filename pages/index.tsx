@@ -45,8 +45,8 @@ export default function Home() {
       <main className="current bgcolor">
         <div className="container">
           <h2>
-            <strong>{formatCurrency(3315700)}</strong> von
-            742&nbsp;Spender*innen
+            <strong>{formatCurrency(3323700)}</strong> von
+            744&nbsp;Spender*innen
           </h2>
         </div>
       </main>
@@ -57,7 +57,7 @@ export default function Home() {
 
             <p>
               Insgesamt sind {formatCurrency(2620400)} in der ersten Staffel und{" "}
-              {formatCurrency(695300)} in der zweiten Staffel für das Projekt
+              {formatCurrency(703300)} in der zweiten Staffel für das Projekt
               gespendet worden gekommen. Damit konnten wir unsere zehn
               Ver&shy;anstal&shy;tungen mit insgesamt 18&nbsp; Live-Acts auf die
               Beine stellen.
