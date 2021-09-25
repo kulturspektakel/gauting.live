@@ -15,7 +15,7 @@ export default function Spenden() {
 
         <p className="lead">
           Wir möchten euch transparent darlegen, wofür wir eure großzügigen
-          Spenden der ersten Staffel verwendet haben.
+          Spenden verwendet haben.
         </p>
 
         <table className="donations">
@@ -25,7 +25,7 @@ export default function Spenden() {
               Über unsere Webseite, betterplace und Direktspenden auf unser
               Konto.
             </td>
-            <td>26.204,00&nbsp;&euro;</td>
+            <td>33.237,00&nbsp;&euro;</td>
           </tr>
           <tr>
             <td>
@@ -34,7 +34,7 @@ export default function Spenden() {
               aufgetreten, trotzdem war es Ziel des Projekts die Künster*innen
               während der Pandemie zu unterstützen.
             </td>
-            <td className="negative">-11.735,40&nbsp;&euro;</td>
+            <td className="negative">-16.934,40&nbsp;&euro;</td>
           </tr>
           <tr>
             <td>
@@ -49,7 +49,7 @@ export default function Spenden() {
               </a>
               . Zusätzlich wurden Beiträge an die Künstlersozialkasse gezahlt.
             </td>
-            <td className="negative">-1.311,58&nbsp;&euro;</td>
+            <td className="negative">-1434,84&nbsp;&euro;</td>
           </tr>
           <tr>
             <td>
@@ -58,7 +58,7 @@ export default function Spenden() {
               wir eine kleine Entschädigung gezahlt, die jedoch fernab üblicher
               Tagessätze ist.
             </td>
-            <td className="negative">-5.602,50&nbsp;&euro;</td>
+            <td className="negative">-7.958,50&nbsp;&euro;</td>
           </tr>
           <tr>
             <td>
@@ -66,20 +66,29 @@ export default function Spenden() {
               Kameras, Videoschnitttechnik, Mischpulte, Beleuchtung und mehr das
               wir zu einem Freundschaftspreis leihen konnten.
             </td>
-            <td className="negative">-4.082,72&nbsp;&euro;</td>
+            <td className="negative">-4.277,52&nbsp;&euro;</td>
           </tr>
           <tr>
             <td>
               <h4>Catering</h4>
               Verpflegung für Crew und Künstler*innen.
             </td>
-            <td className="negative">-971,80&nbsp;&euro;</td>
+            <td className="negative">-1.599,61&nbsp;&euro;</td>
+          </tr>
+          <tr>
+            <td>
+              <h4>COVID-19 Schnelltests</h4>
+              Für die sicher Durchführung der Veranstaltung wurden alle
+              Beteiligten regelmäßig getestet.
+            </td>
+            <td className="negative">-368,77&nbsp;&euro;</td>
           </tr>
         </table>
         <p>
-          Damit bleibt uns aktuell ein Restbetrag von{" "}
-          <strong>2,500&nbsp;&euro;</strong> den wir als Rücklage verwenden um
-          die zweite Staffel zu produzieren.
+          Damit verbleibt aktuell ein Restbetrag von{" "}
+          <strong>663,36&nbsp;&euro;</strong> beim Förderverein Kulturspektakel,
+          den wir entweder für ein Team-Event oder eine zukünftige Veranstaltung
+          verwenden werden.
         </p>
       </div>
     </Page>

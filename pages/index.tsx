@@ -59,7 +59,7 @@ export default function Home() {
               Insgesamt sind {formatCurrency(2620400)} in der ersten Staffel und{" "}
               {formatCurrency(703300)} in der zweiten Staffel für das Projekt
               gespendet worden. Damit konnten wir unsere zehn
-              Ver&shy;anstal&shy;tungen mit insgesamt 18&nbsp; Live-Acts auf die
+              Ver&shy;anstal&shy;tungen mit insgesamt 18&nbsp;Live-Acts auf die
               Beine stellen.
             </p>
             <p>
