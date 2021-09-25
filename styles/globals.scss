@@ -861,6 +861,10 @@ li {
     }
   }
 
+  a.clickableArea {
+    cursor: pointer;
+  }
+
   .clickableArea {
     position: absolute;
     top: 0;
@@ -871,10 +875,6 @@ li {
     overflow: hidden;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-
-    &a {
-      cursor: pointer;
-    }
 
     .thumbnail {
       object-fit: cover;
@@ -1096,4 +1096,49 @@ li {
   .negative {
     color: #ea0000;
   }
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 5;
+  background-color: rgba(255, 255, 255, 0.7);
+  opacity: 0;
+  transition: opacity 200ms ease-out;
+}
+
+.modal {
+  position: fixed;
+  z-index: 6;
+  padding-top: 56.25%;
+  width: 90%;
+  max-height: 90%;
+  background-color: black;
+  border-radius: 15px;
+  overflow: hidden;
+  top: 50%;
+  left: 50%;
+  opacity: 0;
+  transition: all 200ms ease-out;
+  transform: translate(-50%, -20%);
+}
+
+.modal.show {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+}
+
+.videoModal iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.fade.show {
+  opacity: 1;
 }
