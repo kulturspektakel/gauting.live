@@ -1,93 +1,67 @@
 import DonationList from "../components/DonationList";
-import React from "react";
+import React, { Suspense } from "react";
 import Link from "next/link";
 import Page from "../components/Page";
 import Schedule from "../components/Schedule";
 import formatCurrency from "../utils/formatCurrency";
+import Live from "../components/Live";
+import Bar from "../components/Bar";
 
 export default function Home() {
   return (
-    <Page>
+    <Page dark>
+      <Live />
       <div className="container">
         <h1>
-          Kultur in der Krise <strong>unterstützen</strong>
+          Geflüchtete aus der <strong>Ukraine</strong> unterstützen
         </h1>
         <p className="lead">
-          gauting.live ist eine Live-Online-Veranstaltungsreihe, die die
-          Lockdown-Folgen für auftretende Künstler*innen mildern und das
-          kulturelle Leben in Gauting in Zeiten geschlossener
-          Kultureinrichtungen lebendig halten will.
+          Die Gautinger Kulturinitiative gauting.live und das Theaterforum
+          Gauting e.V. veranstalten am Freitag, 08.04.2022 um 20:00 Uhr eine
+          Sonderedition von gauting.live zu Gunsten der Menschen in der Ukraine
+          und der aus der Ukraine Geflüchteten.
         </p>
 
         <div className="headCols">
           <div>
             <img src="/saving-piggy-coins-alternate.svg" width="40" />
             <br />
-            Spendenfinanziert bieten wir eine Reihe Videostreams mit Live-Musik,
-            Lesungen, Talks mit bekannten und neuen Gästen an.
+            Die Spenden werden an den{" "}
+            <a href="https://asylgauting.de" target="_blank">
+              Förderkreis Asyl Gauting e.V.
+            </a>{" "}
+            und{" "}
+            <a href="https://www.directaidukraine.org" target="_blank">
+              Direct Aid Ukraine
+            </a>{" "}
+            weitergereicht, um Menschen in der Ukraine und Geflüchtete zu
+            unterstützen.
           </div>
 
           <div>
             <img src="/video-game-logo-stream.svg" width="40" />
             <br />
-            Die Veranstaltungen werden per Livestream aus dem bosco übertragen
-            und anschließend als Aufzeichnung angeboten.
+            In der Tradition von gauting.live wird live im Internet gestreamt,
+            zugleich ist der Saal im bosco aber auch für Publikum vor Ort
+            geöffnet.
           </div>
 
           <div>
             <img src="/love-heart-hands-hold-3.svg" width="40" />
             <br />
-            Die Spenden werden ausschließlich dazu verwendet die beteiligten
-            Künstler&shy;*innen und Techniker&shy;*innen zu unterstützen.
+            Zwischen musikalischen Beiträgen von Gautinger und regionalen
+            Künstler*innen wird es Gesprächs&shy;beiträge geben, unter anderem
+            wird der Helferkreis Asyl zu Wort kommen.
           </div>
         </div>
       </div>
-      <main className="current bgcolor">
-        <div className="container">
-          <h2>
-            <strong>{formatCurrency(3323700)}</strong> von
-            744&nbsp;Spender*innen
-          </h2>
-        </div>
-      </main>
-      <main>
-        <div className="container goals">
-          <div className="goal">
-            <h3>Vielen Dank!</h3>
-
-            <p>
-              Insgesamt sind {formatCurrency(2620400)} in der ersten Staffel und{" "}
-              {formatCurrency(703300)} in der zweiten Staffel für das Projekt
-              gespendet worden. Damit konnten wir unsere zehn
-              Ver&shy;anstal&shy;tungen mit insgesamt 18&nbsp;Live-Acts auf die
-              Beine stellen.
-            </p>
-            <p>
-              Dank eurer Spenden konnten wir unsere Künstler*innen und
-              Techniker*innen in Zeiten der Pandemie unterstützen. Mehr
-              Informationen zur Verwendung der Spendengelder könnt ihr auf
-              unserer <Link href="/spenden">Übersichts&shy;seite</Link> finden.
-            </p>
-          </div>
-          <div className="goal">
-            <h3>Über 15.000 Zuschauer*innen</h3>
-            <p>
-              Unsere Livestreams und Aufzeichnungen auf Facebook, YouTube und
-              Instagram haben insgesamt mehr als 15.000&nbsp;Personen erreicht.
-              Mehr als wir je gedacht hätten.
-            </p>
-            <p>
-              Die Umsetzung des Projekts wurde von unserer 30-köpfigen Crew aus
-              Kameraleuten, Veran&shy;staltungs&shy;techniker*innen und vielen
-              weiteren gestemmt.
-            </p>
-          </div>
-        </div>
-      </main>
+      <Suspense fallback={null}>
+        <Bar goals={[300000]} />
+      </Suspense>
       <main className="live">
         <div className="container">
           <div className="inner">
-            <h2>2&nbsp;Staffeln, 10&nbsp;Episoden</h2>
+            <h2>Zur Corona-Pandemie</h2>
             <p>
               Nach zehn Episoden ist gauting.live jetzt zu Ende und hoffentlich
               kann es bald mit Live-Konzerten weitergehen.

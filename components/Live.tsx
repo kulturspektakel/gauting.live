@@ -1,71 +1,54 @@
-import React from "react";
+import { isAfter } from "date-fns";
+import React, { useEffect, useState } from "react";
 import Countdown from "./Countdown";
-import { fetchLive } from "../pages/api/live";
 import Video from "./Video";
 
-export default React.forwardRef<
-  any,
-  {
-    liveVideo: Await<ReturnType<typeof fetchLive>>["data"];
-    fbCapableBrowser: boolean;
-  }
->(({ liveVideo, fbCapableBrowser }, ref) => {
-  if (!liveVideo) {
-    return null;
-  }
+export default () => {
+  const [now, setNow] = useState(new Date());
+  useEffect(() => {
+    const ref = setInterval(() => {
+      setNow(new Date());
+    }, 30000);
+    return clearInterval(ref);
+  }, []);
 
-  let video = (
-    <>
-      <Video
-        autoPlay={liveVideo.status === "live"}
-        id={liveVideo.videoId}
-        page={liveVideo.pageId}
-        service="facebook"
-      />
-      {liveVideo.youtube && (
-        <a
-          href={`https://www.youtube.com/watch?v=${liveVideo.youtube}`}
-          target="_blank"
-          className="openYouTube"
-        >
-          auf YouTube ansehen
-        </a>
-      )}
-    </>
-  );
-
-  if (
-    liveVideo.status === "scheduled_unpublished" &&
-    liveVideo.planned_start_time
-  ) {
-    // countdown
-    video = (
-      <div className="video">
-        <div className="videoInner">
-          <div className="info">
-            <Countdown
-              date={new Date(liveVideo.planned_start_time)}
-              ended="Gleich geht's los&hellip;"
-            />
-            <h3>{liveVideo.title}</h3>
-            <p>{liveVideo.description}</p>
-          </div>
-        </div>
-      </div>
-    );
-  } else if (!fbCapableBrowser && liveVideo.youtube) {
-    video = (
-      <Video
-        id={liveVideo.youtube}
-        service="youtube"
-        openExternal={liveVideo.status === "live"}
-      />
-    );
-  }
+  const startTime = new Date("2022-04-08T20:00:00+02:00");
+  const youtube = "TZ1OprXAhCg";
+  const isLive = isAfter(now, startTime);
 
   return (
-    <main className="livestream" ref={ref}>
-      <div className="container">{video}</div>
+    <main className="livestream">
+      <div className="container">
+        {isLive ? (
+          <div className="video">
+            <div className="videoInner">
+              <a
+                className="clickableArea"
+                title="Video abspielen"
+                href="https://www.youtube.com/watch?v=TZ1OprXAhCg"
+                target="_blank"
+              >
+                <img src="vid.gif" className="thumbnail backgroundVid" />
+                <img src="/play.png" className="play" width="73" height="73" />
+              </a>
+            </div>
+            <div className="liveBadge">Live</div>
+          </div>
+        ) : (
+          <div className="video">
+            <div className="videoInner">
+              <div className="info">
+                <Countdown date={startTime} ended="Gleich geht's los&hellip;" />
+                <h3>Benefizkonzert für die Ukraine</h3>
+                <p>
+                  mit Erik Berthold, Susanne Karl, Stefan Berchtold, Micha
+                  Reiserer, Jane Höchstetter Markus Schmitt u.v.a.
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
     </main>
   );
-});
+};

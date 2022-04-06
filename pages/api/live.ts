@@ -1,53 +1,9 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { PrismaClient, VideoStatus } from "@prisma/client";
-import { sub, add } from "date-fns";
-const prisma = new PrismaClient();
+import fetch from "unfetch";
 
 export default async (_req: NextApiRequest, res: NextApiResponse) =>
-  res.json(await fetchLive());
-
-export async function fetchLive() {
-  const isToday = {
-    gt: sub(new Date(), {
-      hours: 8,
-    }),
-    lt: add(new Date(), {
-      hours: 16,
-    }),
-  };
-
-  const liveEvent = await prisma.live.findFirst({
-    where: {
-      OR: [
-        {
-          planned_start_time: isToday,
-          status: {
-            in: [VideoStatus.scheduled_unpublished, VideoStatus.scheduled_live],
-          },
-        },
-        {
-          status: VideoStatus.live,
-        },
-        {
-          status: VideoStatus.vod,
-          broadcast_start_time: isToday,
-        },
-      ],
-    },
-    orderBy: {
-      planned_start_time: "asc",
-    },
-    select: {
-      pageId: true,
-      videoId: true,
-      planned_start_time: true,
-      broadcast_start_time: true,
-      title: true,
-      description: true,
-      status: true,
-      youtube: true,
-    },
-  });
-
-  return { data: liveEvent };
-}
+  res.json(
+    await fetch(
+      "https://api.betterplace.org/de/api_v4/projects/1114.json"
+    ).then((r) => r.json())
+  );

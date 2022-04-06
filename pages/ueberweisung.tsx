@@ -29,6 +29,12 @@ export default function Impressum(props: {}) {
           <br />
           DE32 7025 0150 0022 7836 09
         </p>
+
+        <p>
+          <strong>Verwendungszweck:</strong>
+          <br />
+          Ukraine
+        </p>
         <p>
           Wenn eine Spendenquittung benötigt wird, bitte eine E-Mail an
           info@gauting.live senden.
