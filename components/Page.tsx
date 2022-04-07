@@ -17,7 +17,7 @@ export default function Page({ dark, children }: Props) {
           <link rel="icon" href="/favicon.ico" />
           <meta
             property="og:description"
-            content="Kultur in der Krise unterstützen."
+            content="Für die Unterstützung der Ukraine."
           />
           <meta property="og:image" content="/share.jpg" />
         </Head>
