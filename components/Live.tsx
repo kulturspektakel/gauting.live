@@ -1,4 +1,4 @@
-import { isAfter } from "date-fns";
+import { isAfter, sub } from "date-fns";
 import React, { useEffect, useState } from "react";
 import Countdown from "./Countdown";
 import Video from "./Video";
@@ -13,8 +13,7 @@ export default () => {
   }, []);
 
   const startTime = new Date("2022-04-08T20:00:00+02:00");
-  const youtube = "TZ1OprXAhCg";
-  const isLive = isAfter(now, startTime);
+  const isLive = isAfter(now, sub(startTime, { minutes: 15 }));
 
   return (
     <main className="livestream">
@@ -28,7 +27,7 @@ export default () => {
                 href="https://www.youtube.com/watch?v=TZ1OprXAhCg"
                 target="_blank"
               >
-                <img src="vid.gif" className="thumbnail backgroundVid" />
+                <img src="/vid.gif" className="thumbnail backgroundVid" />
                 <img src="/play.png" className="play" width="73" height="73" />
               </a>
             </div>
