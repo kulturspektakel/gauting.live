@@ -24,7 +24,7 @@ export default () => {
               <a
                 className="clickableArea"
                 title="Video abspielen"
-                href="https://www.youtube.com/watch?v=TZ1OprXAhCg"
+                href="https://www.youtube.com/watch?v=4OoXXgOsWgY"
                 target="_blank"
               >
                 <img src="/vid.gif" className="thumbnail backgroundVid" />
